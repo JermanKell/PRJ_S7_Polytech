@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calc.h" />
+    <ClInclude Include="cdpcorrespondance.h" />
+    <ClInclude Include="character.h" />
+    <ClInclude Include="characteristicvector.h" />
+    <ClInclude Include="Command.h" />
+    <ClInclude Include="CommandLine.h" />
+    <ClInclude Include="commandlineapplication.h" />
+    <ClInclude Include="commandlineapplicationpourcentage.h" />
+    <ClInclude Include="commandlineoutput.h" />
+    <ClInclude Include="correspondance.h" />
+    <ClInclude Include="csvParser.h" />
+    <ClInclude Include="dtwcorrespondance.h" />
+    <ClInclude Include="element.h" />
+    <ClInclude Include="esccorrespondance.h" />
+    <ClInclude Include="Exc.h" />
+    <ClInclude Include="extParser.h" />
+    <ClInclude Include="extParserpourcentage.h" />
+    <ClInclude Include="fsmcorrespondance.h" />
+    <ClInclude Include="InOut.h" />
+    <ClInclude Include="lcscorrespondance.h" />
+    <ClInclude Include="levenstheincorrespondance.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="mvmcorrespondance.h" />
+    <ClInclude Include="numeric.h" />
+    <ClInclude Include="operatordistance.h" />
+    <ClInclude Include="parametrage.h" />
+    <ClInclude Include="paramparser.h" />
+    <ClInclude Include="sequence.h" />
+    <ClInclude Include="sequencematchingexception.h" />
+    <ClInclude Include="sequenceparser.h" />
+    <ClInclude Include="UnitTest.h" />
+    <ClInclude Include="xmlParser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cdpcorrespondance.cpp" />
+    <ClCompile Include="character.cpp" />
+    <ClCompile Include="characteristicvector.cpp" />
+    <ClCompile Include="CommandLine.cpp" />
+    <ClCompile Include="commandlineapplication.cpp" />
+    <ClCompile Include="commandlineapplicationPourcentage.cpp" />
+    <ClCompile Include="commandlineoutput.cpp" />
+    <ClCompile Include="correspondance.cpp" />
+    <ClCompile Include="csvParser.cpp" />
+    <ClCompile Include="dtwcorrespondance.cpp" />
+    <ClCompile Include="esccorrespondance.cpp" />
+    <ClCompile Include="extParser.cpp" />
+    <ClCompile Include="extParserPoucentage.cpp" />
+    <ClCompile Include="fsmcorrespondance.cpp" />
+    <ClCompile Include="lcscorrespondance.cpp" />
+    <ClCompile Include="levenstheincorrespondance.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mvmcorrespondance.cpp" />
+    <ClCompile Include="numeric.cpp" />
+    <ClCompile Include="parametrage.cpp" />
+    <ClCompile Include="paramparser.cpp" />
+    <ClCompile Include="sequence.cpp" />
+    <ClCompile Include="sequenceparser.cpp" />
+    <ClCompile Include="xmlParser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4BEAB55-9358-4234-88C0-1D96DA1E00E6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>MatchingToolBox</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)regex-2.7-lib\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>regex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)regex-2.7-lib\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>regex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

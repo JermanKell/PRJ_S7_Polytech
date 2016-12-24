@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include "InOut.h"
+#include "UnitTest.h"
+#include "Command.h"
+#include "Exc.h"
+#include <iostream>
+#include <fstream>
+#include <ctime>
+#include <string.h>
+using namespace std;
+int main(int argc, char *argv[])
+{
+
+   bool pourcentage = true;
+	clock_t begin = clock();
+	commandline::CommandLine *c;
+	if(argc > 2 && strcmp((const char *)argv[1],"-pourcentage")==0)
+        c = new commandline::CommandLineApplicationClassMatchnig(argc,argv);
+    else
+        c = new commandline::CommandLineApplication(argc,argv);
+    try{
+		c->run();
+    }
+    catch(exc::SequenceMatchingException & e)
+    {
+        std::cout<<e.what()<<std::endl;
+        std::cout<<"Gestion des paramètres toolbox :\n\narguments :\n\n-sequences <target.csv> <query.csv>\n\nGive the sequences file path\n\n-method -lvn|-lcd|-dtw|-mvmm|-cdp|-fsm|-esc\n\nGive the algorithm to use\n\n-patron <name> <file1.csv> <fichier2.csv>\n\nAllow the creation of a patron\n\n-param <paramfile.xml>\n\nGive the path of the parameter fil to use\n\n-method lvn  --costs 1 1 1\n\nLevenshtein cost value, addCost delCost transCost"<<std::endl;
+    }
+
+	int test = 0;
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+	std::cout << "Fini avec " << elapsed_secs << " secondes" << endl;
+	//cin >> test;
+    return 0;
+}

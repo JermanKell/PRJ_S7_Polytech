@@ -1,0 +1,31 @@
+/*!
+  \author Abdourahman Aden Hassan
+  \date 30/12/2013
+  \package package
+  \class OperatorDistance interface
+  \brief Class for the distance operation
+ */
+#ifndef OPERATORDISTANCE_H
+#define OPERATORDISTANCE_H
+
+namespace model{
+class Element;
+class OperatorDistance
+{
+
+public:
+
+    virtual ~OperatorDistance() {}
+    
+	  /*!
+     * \brief abstract method implementation : distance
+     * get the distance between two Element
+     * \param eOD1 the first element
+     * \param eOD2 the seconde element
+     * \return ret the distance
+     * \exception if both the two element are not the same Class
+    */
+    virtual float distance(Element *eOD1, Element *eOD2) = 0;
+};
+}
+#endif // OPERATORDISTANCE_H

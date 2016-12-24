@@ -1,0 +1,41 @@
+/*!
+* \author Abdourahman Aden Hassan
+		  Bastien Meunier
+* \date 21/12/2013
+		20/01/2015
+* \package inout
+* \class ParamParser
+* \implements SequenceParser
+* \brief Read the parameter file
+ */
+#ifndef PARAMPARSER_H
+#define PARAMPARSER_H
+#include "Calc.h"
+#include "sequenceparser.h"
+
+namespace inout{
+class ParamParser : public SequenceParser
+{
+public:
+	ParamParser() : SequenceParser(){}
+	virtual ~ParamParser(){}
+    
+	/*!
+     * \brief readFile
+	 * Read a parameter file, parse it in Paramatrage object
+     * \param doc : file name
+     * \return the object
+     */
+	virtual void * readFile(void * document);
+    
+	/*!
+     * \brief createPattern
+     * \param list1 vector of sequences 1
+	 * \param list2 vector of sequences 2
+	 * \param filename the file to write the pattern in
+     */
+    void createPattern(std::vector<model::Sequence *> * list1,std::vector<model::Sequence *> * list2, char * filename);
+private:
+};
+}
+#endif // PARAMPARSER_H

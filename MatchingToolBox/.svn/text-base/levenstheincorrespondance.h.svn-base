@@ -1,0 +1,60 @@
+/*!
+  \author Abdourahman Aden Hassan
+  \date 30/12/2013
+  \package calc
+  \class LevenstheinCorrespondance
+  \extends Correspondance
+  \brief Class for matchnig with Levenshtein algorithm
+ */
+#ifndef LEVENSTHEINCORRESPONDANCE_H
+#define LEVENSTHEINCORRESPONDANCE_H
+#include "correspondance.h"
+#define NOCHAR 10000
+#define ADD 11000
+#define DEL 12000
+#define TRANS 13000
+#define TRANSEQ 14000
+namespace calc{
+class LevenstheinCorrespondance : public Correspondance
+{
+protected:
+    float fLCdelcost;/** cost to delete an element*/
+    float fLCaddcost;/** cost to add an element*/
+    float fLCtranscost;/** cost to switch an element*/
+    int isExternParametrage;
+	float calcTab(float ** tabDifference, int it1, int it2){
+		return Correspondance::calcTab(tabDifference,it1,it2);
+	};
+public:
+
+	/**
+	* \brief Constructor
+	*/
+    LevenstheinCorrespondance() : Correspondance(){
+        fLCaddcost = 1.0;
+        fLCdelcost = 1.0;
+        fLCtranscost = 1.0;
+    };
+	LevenstheinCorrespondance(Parametrage * param) : Correspondance(param)
+	{
+		fLCaddcost = param->getLevenshteinCost(0);
+        fLCdelcost = param->getLevenshteinCost(1);
+        fLCtranscost = param->getLevenshteinCost(2);
+	};
+    LevenstheinCorrespondance(float delcost, float addcost, float transcost) : Correspondance(){
+        fLCaddcost = delcost;
+        fLCdelcost = addcost;
+        fLCtranscost = transcost;
+    };
+    LevenstheinCorrespondance(float delcost, float addcost, float transcost, Parametrage * p): Correspondance(p){
+        fLCaddcost = delcost;
+        fLCdelcost = addcost;
+        fLCtranscost = transcost;
+		p->setLevenshteinCost(addcost,delcost,transcost);
+    };
+
+    virtual ~LevenstheinCorrespondance(){};
+    vector<ResultatCorrespondance> *correspondre(model::Sequence * s1, model::Sequence * s2);
+};
+}
+#endif // LEVENSTHEINCORRESPONDANCE_H

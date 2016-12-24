@@ -1,0 +1,389 @@
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox
+END
+character.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/character.h
+END
+numeric.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/79/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/numeric.cpp
+END
+esccorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/esccorrespondance.h
+END
+sequence.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/sequence.cpp
+END
+csvParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/67/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/csvParser.h
+END
+levenstheincorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/levenstheincorrespondance.h
+END
+xmlParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/xmlParser.h
+END
+mvmcorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/mvmcorrespondance.cpp
+END
+modeltest.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/modeltest.cpp
+END
+cdpcorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/79/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/cdpcorrespondance.h
+END
+InOut.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/InOut.h
+END
+numeric.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/numeric.h
+END
+MatchingToolBox.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/MatchingToolBox.vcxproj
+END
+commandlineapplication.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineapplication.cpp
+END
+correspondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/correspondance.h
+END
+operatordistance.h
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/operatordistance.h
+END
+sequence.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/sequence.h
+END
+xmlParser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/78/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/xmlParser.cpp
+END
+cdpcorrespondace.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/masses-dimages-de-documents/!svn/ver/67/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/cdpcorrespondace.cpp
+END
+MatchingToolBox.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/MatchingToolBox.vcxproj.filters
+END
+extParser.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/extParser.h
+END
+UnitTest.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/masses-dimages-de-documents/!svn/ver/67/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/UnitTest.h
+END
+Exc.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/masses-dimages-de-documents/!svn/ver/67/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/Exc.h
+END
+CommandLine.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/CommandLine.cpp
+END
+parametrage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/parametrage.cpp
+END
+extParserPoucentage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/masses-dimages-de-documents/!svn/ver/78/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/extParserPoucentage.cpp
+END
+modeltest.h
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/modeltest.h
+END
+Model.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/Model.h
+END
+correspondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/correspondance.cpp
+END
+lcscorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/lcscorrespondance.h
+END
+commandlineoutput.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineoutput.h
+END
+extParser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/77/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/extParser.cpp
+END
+ClassDiagram1.cd
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/ClassDiagram1.cd
+END
+commandlineapplication.h
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/masses-dimages-de-documents/!svn/ver/80/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineapplication.h
+END
+fsmcorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/fsmcorrespondance.h
+END
+characteristicvector.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/masses-dimages-de-documents/!svn/ver/80/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/characteristicvector.h
+END
+paramparser.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/paramparser.h
+END
+Command.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/Command.h
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/main.cpp
+END
+dtwcorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/77/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/dtwcorrespondance.cpp
+END
+MatchingToolBox.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/MatchingToolBox.vcxproj.user
+END
+sequenceparser.h
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/sequenceparser.h
+END
+CommandLine.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/CommandLine.h
+END
+character.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/67/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/character.cpp
+END
+parametrage.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/parametrage.h
+END
+element.h
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/element.h
+END
+ClassDiagram.cd
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/ClassDiagram.cd
+END
+esccorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/esccorrespondance.cpp
+END
+sequencematchingexception.h
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/sequencematchingexception.h
+END
+lcscorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/77/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/lcscorrespondance.cpp
+END
+Calc.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/Calc.h
+END
+commandlineapplicationPourcentage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineapplicationPourcentage.cpp
+END
+commandlineoutput.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineoutput.cpp
+END
+csvParser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/csvParser.cpp
+END
+levenstheincorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/masses-dimages-de-documents/!svn/ver/77/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/levenstheincorrespondance.cpp
+END
+fsmcorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/fsmcorrespondance.cpp
+END
+characteristicvector.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/masses-dimages-de-documents/!svn/ver/79/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/characteristicvector.cpp
+END
+commandlineapplicationpourcentage.h
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/masses-dimages-de-documents/!svn/ver/80/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/commandlineapplicationpourcentage.h
+END
+paramparser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/paramparser.cpp
+END
+extParserpourcentage.h
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/extParserpourcentage.h
+END
+sequenceparser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/svn/masses-dimages-de-documents/!svn/ver/78/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/sequenceparser.cpp
+END
+dtwcorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/dtwcorrespondance.h
+END
+mvmcorrespondance.h
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/masses-dimages-de-documents/!svn/ver/81/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/mvmcorrespondance.h
+END
+cdpcorrespondance.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/masses-dimages-de-documents/!svn/ver/82/MatchingToolBox/MatchingToolBoxWindows/MatchingToolBox/MatchingToolBox/cdpcorrespondance.cpp
+END

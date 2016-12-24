@@ -1,0 +1,12 @@
+/*!
+  \author Bastien Meunier
+  \date 22/04/2015
+  \package Commande
+  \brief Commande application package
+ */
+#ifndef COMMANDE_H
+#define COMMANDE_H
+    #include "CommandLine.h"
+#include "commandlineapplication.h"
+#include "commandlineapplicationpourcentage.h"
+#endif // CALC_H

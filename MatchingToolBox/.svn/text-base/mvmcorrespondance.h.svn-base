@@ -1,0 +1,35 @@
+/*!
+  \author Abdourahman Aden Hassan
+  \date 30/12/2013
+  \package calc
+  \class MVMCorrespondance
+  \extends Correspondance
+  \brief Class for matchnig with Minimum Variance Matching algorithm
+ */
+#ifndef MVMCORRESPONDANCE_H
+#define MVMCORRESPONDANCE_H
+
+#include "correspondance.h"
+/*#if defined _WIN32 || defined _WIN64
+            // Windows Includes Here
+	inline int round(float x) { return (int) (floor(x + 0.5)); }
+#endif*/
+namespace calc{
+class MvmCorrespondance : public Correspondance
+{
+private:
+    int isExternParametrage;
+public:
+    /*!
+     * \brief Constructor
+     */
+    MvmCorrespondance() : Correspondance(){};
+	MvmCorrespondance(Parametrage * param) : Correspondance(param){};
+	virtual ~MvmCorrespondance(){};
+    vector<ResultatCorrespondance> *correspondre(model::Sequence * s1, model::Sequence * s2);
+
+protected:
+	float calcTab(float ** tabDifference, int it1, int it2);
+};
+}
+#endif // MVMCORRESPONDANCE_H

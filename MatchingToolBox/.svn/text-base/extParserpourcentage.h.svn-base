@@ -1,0 +1,32 @@
+/*!
+* \author Meunier Bastien
+* \date 15/12/2014
+* \package inout
+* \class EXTParserClassMatchnig
+* \implements SequenceParser
+* \brief Read the file which contain sequences with the sequence class as the first place in a line
+*/
+#ifndef EXTPARSERCLASSMATCHING_H
+#define EXTPARSERCLASSMATCHING_H
+#include "sequenceparser.h"
+#include <string>
+using namespace std;
+namespace inout {
+class EXTParserClassMatchnig : public SequenceParser
+{
+public:
+	EXTParserClassMatchnig() : SequenceParser(){}
+	virtual ~EXTParserClassMatchnig(){}
+
+	/*!
+     * \brief readFile
+	 * Read a file, parse it in a RapidXML object
+     * \param doc : file name
+     * \return the object
+     */
+    void * readFile(void * doc);
+};
+
+}
+#endif
+

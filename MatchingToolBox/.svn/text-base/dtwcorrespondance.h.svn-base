@@ -1,0 +1,41 @@
+/*!
+  \author Abdourahman Aden Hassan
+          Bastien Meunier
+  \date 24/12/2013
+		08/03/2015
+  \package calc
+  \class DTWCorrespondance
+  \extends Correspondance
+  \brief Class for matchnig with Dynamic Time Warping algorithm
+ */
+
+#ifndef DTWCORRESPONDANCE_H
+#define DTWCORRESPONDANCE_H
+#include "correspondance.h"
+
+namespace calc{
+class DTWCorrespondance : public Correspondance
+{
+
+public:
+
+	/**
+	\brief Constructor
+	*/
+    DTWCorrespondance() : Correspondance(){};
+	DTWCorrespondance(Parametrage * param) : Correspondance(param){};
+	virtual ~DTWCorrespondance(){};
+
+	/**
+	* \brief correspondre
+	* find the matching beween two sequence
+	*/
+    vector<ResultatCorrespondance> *correspondre(model::Sequence * s1, model::Sequence * s2);
+
+protected :
+	float calcTab(float ** tabDifference, int it1, int it2){
+		return Correspondance::calcTab(tabDifference,it1,it2);
+	};
+};
+}
+#endif // DTWCORRESPONDANCE_H

@@ -1,0 +1,32 @@
+/*!
+  \author Bastien Meunier
+  \date 03/03/2015
+   \package calc
+  \class FSMCorrespondance
+  \extends Correspondance
+  \brief Class for matchnig with Flexible Sequences Matching algorithm
+ */
+#ifndef FSMCORRESPONDANCE_H
+#define FSMCORRESPONDANCE_H
+
+#include "correspondance.h"
+namespace calc{
+class FSMCorrespondance : public Correspondance
+{
+
+protected:
+
+	float calcTab(float ** tabDifference, int it1, int it2){
+		return Correspondance::calcTab(tabDifference,it1,it2);
+	};
+
+
+public:
+	FSMCorrespondance() : Correspondance(){};
+	FSMCorrespondance(Parametrage * param) : Correspondance(param){};
+	virtual ~FSMCorrespondance(){};
+
+	vector<ResultatCorrespondance> *correspondre(model::Sequence * starget, model::Sequence * sRef);
+};
+}
+#endif

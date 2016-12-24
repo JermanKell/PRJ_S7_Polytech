@@ -1,0 +1,124 @@
+/*!
+  \author Abdourahman Aden Hassan
+          Bastien Meunier
+  \date 24/12/2013
+		03/02/2015
+  \package inout
+  \class CommandelineOutput
+  \brief Class for writing the result of the matching
+ */
+
+#ifndef COMMANDLINEOUTPUT_H
+#define COMMANDLINEOUTPUT_H
+#include "Model.h"
+#include "Calc.h"
+#define EGAL "="
+#define SUB  "o"
+#define ADDING  "+"
+#define SUPPRESS  "-"
+#define NO   " "
+namespace inout{
+class CommandLineOutput
+{
+
+private:
+
+    model::Sequence * sCLOseq1;/** The sequence target*/
+    model::Sequence * sCLOseq2;/** The sequence reference (request)*/
+
+    calc::Correspondance * cCLOcor;/** The Correspondance object used for the matching*/
+
+    /*!
+     * \brief formattageLevensthein
+     * Formatted a result whith the levenshtein format:
+	 *  = if two element match
+	 *  - if an element is deleted
+	 *  + if an element is added
+	 *  o if an element is replaced
+	 * the distance
+     * \param r a pointer on a resutlt class
+     * \return the result formatted with the Levenshtein format
+     */
+    string formattageLevensthein(calc::ResultatCorrespondance * r);
+    
+	/*!
+     * \brief formattageLCS
+     * Formatted a result whith the LCS format:
+	 *  - if an element is not matched
+	 *  the element is written if match
+	 * the matching element ad the distance are writen
+     * \param r a pointer on a resutlt class
+     * \return the result formatted with the LCS format
+     */
+    string formattageLCS(calc::ResultatCorrespondance * r);
+
+    /*!
+     * \brief formattageType1
+     * Formated a result for DTW,MVM,CDP and FSM
+	 * - if not matched
+	 * + if matched
+	 * distance
+     * \param r un pointer on a result class
+     * \return the result formatted
+     */
+    string formattageType1(calc::ResultatCorrespondance * r);
+	/*!
+     * \brief formattageType2
+     * Formated a result for DTW,MVM,CDP and FSM
+	 * dist: index of reference -> index of target
+     * \param r un pointer on a result class
+     * \return the result formatted
+     */
+    string formattageType2(calc::ResultatCorrespondance * r);
+
+
+
+    /*!
+     * \brief tailleMaxElement
+     * Harmonizes the display depending on the size of the sequences
+     * \param s
+     * \return
+     */
+    unsigned int tailleMaxElement(model::Sequence *s);
+
+    string getSpace(unsigned int size);
+public:
+
+    /*!
+     * \brief CommandLineOutput
+     * Constructor
+     * \param s1 : the sequences target
+     * \param s2 : the sequenes references
+     * \param c : the class of the matching algorithm
+     */
+    CommandLineOutput( model::Sequence * s1,model::Sequence * s2,calc::Correspondance * c);
+    
+	/*!
+     * \brief show (not use in the current application)
+     * Display the formatted result in a console 
+     */
+    void show();
+
+    /*!
+     * \brief showInFormat
+     * get the formatted result of a matching
+	 * \return the string a the formatted result 
+     */
+	string showInFormat();
+
+    /*!
+     * \brief format
+     * Formatted a matching depending of its algorithm
+     * \return
+     */
+    string format();
+
+    /*!
+     * \brief getResult
+     * Get he distance of a matching
+     * \return the minimum distance of a matching
+     */
+    float getResult();
+};
+}
+#endif // COMMANDLINEOUTPUT_H

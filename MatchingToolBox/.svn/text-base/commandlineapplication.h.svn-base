@@ -1,0 +1,32 @@
+/*!
+  \author Abdourahman Aden Hassan
+          Bastien Meunier
+  \date 05/01/2014
+        20/01/2015
+  \package commandline
+  \class CommandeLineApplication
+  \implements CommandeLine
+  \brief Class for the basic execution type
+*/
+#ifndef COMMANDLINEAPPLICATION_H
+#define COMMANDLINEAPPLICATION_H
+
+#include "CommandLine.h"
+
+namespace commandline{
+
+class CommandLineApplication : public CommandLine
+{
+
+public:
+	
+	CommandLineApplication(int argc, char *argv[]) : CommandLine(argc,argv){};
+
+	/**
+	* \brief run
+	* Function which run the basic execution of the matching sequences
+	*/
+    void run();
+};
+}
+#endif // COMMANDLINEAPPLICATION_H

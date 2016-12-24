@@ -1,0 +1,16 @@
+/*!
+  \author Abdourahman Aden Hassan
+  \date 21/12/2013
+  \package Model
+  \brief Package for the element of the model
+ */
+#ifndef MODEL_H
+#define MODEL_H
+    #include "operatordistance.h"
+    #include "element.h"
+    #include "numeric.h"
+    #include "character.h"
+    #include "characteristicvector.h"
+    #include "sequence.h"
+
+#endif // MODEL_H

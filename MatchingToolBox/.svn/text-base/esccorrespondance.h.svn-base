@@ -1,0 +1,30 @@
+/*!
+  \author Bastien Meunier
+  \date 03/03/2015
+   \package calc
+  \class ESCCorrespondance
+  \extends Correspondance
+  \brief Class for matchnig with Exemplary Sequence Cardinality algorithm
+ */
+#ifndef ESCCORRESPONDANCE_H
+#define ESCCORRESPONDANCE_H
+
+#include "correspondance.h"
+namespace calc{
+class ESCCorrespondance : public Correspondance
+{
+
+protected:
+
+	float calcTab(float ** tabDifference, int it1, int it2);
+
+
+public:
+	ESCCorrespondance() : Correspondance(){};
+	ESCCorrespondance(Parametrage * param) : Correspondance(param){};
+	virtual ~ESCCorrespondance(){};
+
+	vector<ResultatCorrespondance> *correspondre(model::Sequence * starget, model::Sequence * sRef);
+};
+}
+#endif

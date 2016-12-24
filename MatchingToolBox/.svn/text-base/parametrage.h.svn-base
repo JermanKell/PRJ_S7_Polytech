@@ -1,0 +1,377 @@
+/*!
+  \author Abdourahman Aden Hassan
+         Bastien MEUNIER
+  \date 30/12/2013
+		21/04/2015
+  \package calc
+  \class Parametrage
+  \brief Class for the parameters for the matching algoritm
+ */
+#ifndef PARAMETRAGE_H
+#define PARAMETRAGE_H
+#include "Model.h"
+#include <vector>
+
+using namespace std;
+namespace calc{
+class Parametrage
+{
+
+protected:
+    /*!< The size of the sequence 1*/
+    unsigned int iPsizeS1;
+    /*!< The size of the sequence 2*/
+    unsigned int iPsizeS2;
+    /*!< The size of the CaracteristicVector, -1 if not a vector*/
+    unsigned int iPsizeVecCarac;
+    /*!< Weight applied to the distance, 1 par défaut*/
+    float vPweigtDistance;
+    /*!< Weight applied to an element of the first sequence when we calculate the distance, 1 by default*/
+    vector<float> *vPweightS1;
+    /*!< Weight applied to an element of the second sequence when we calculate the distance, 1 by default*/
+    vector<float> *vPweightS2;
+    /*!< Weight applied to a value of a CaracteristicVector when we calculate the distance, 1 by default*/
+    vector<float> *vPweightVecCarac;
+    /*!< Weight applied to the distance matrix, 1 by default, 1 par défaut*/
+    vector<vector<float>*> *vPweightMatrice;
+	/*!<The threshold used for the CDP min value, -1 by default*/
+	float fPThreshold;
+	/*!<THe cost for a Levenshtein mouvement, 1 by default*/
+	vector<float> *vPLevenshteinCost;
+	/*!<The MVM elasticity value, 10 by default*/
+	int iPMvmElastic;
+	/*!<The FSM elasticity value, -1 by default*/
+	int iPFsmElesticity;
+	/*!<The value of the weight of a jump in FSM, 1 by default*/
+	float fPFsmWeight;
+	/*!<The value of the small skip cost of a jump in FSM, -1 by default*/
+	float fPFsmSmallSkipCost;
+	/*!<The value of the skip cost of a jump in FSM, -1 by default*/
+	float fPFsmSkipCost;
+	/*!<The value of result wanted for the FSM, 0 by default*/
+	int iPFsmTypeOfResult;
+	/*!<The number of elemenet taken for each line in the calcul of the skipcost in the FSM, 2 by default*/
+	int iPFsmNbOfMinByLine;
+	/*!<Defined if the minimum must be search at the begining of the sequence or not, 0 by default
+	* 0 : Look at the begining
+	* 1 : Look at the size of the reference
+	*/
+	bool bPFsmFirstColForResult;
+	/*!<The value of default skip cost for the FSM, 0.1 by default*/
+	float fPFsmDefaultSkipCost;
+	/*!<The number of standart deviation taken in the calcul of the skip cost for the FSM, 2 by default*/
+	int iPFsmStandartDeviationNumber;
+
+
+public:
+
+    /*!
+     \brief Constructor
+	Create the parameter object.
+     \param sizeS1 the size of the first sequence
+     \param sizeS2 the size of the seconde sequence
+    */
+    Parametrage(unsigned int sizeS1, unsigned int sizeS2);
+
+    /*!
+      \brief Constructor
+	Create the parameter object.
+     \param sizeS1 the size of the first sequence
+     \param sizeS2 the size of the second sequence
+     \param sizeVecCarac the size of the vector
+    */
+    Parametrage(unsigned int sizeS1,unsigned int sizeS2,unsigned int sizeVecCarac);
+    /*!
+     * \brief Destructeur
+     */
+    ~Parametrage();
+    /*!
+     \brief setS1Weight
+        set the weight for an element of the first sequence
+     \param index element index
+     \param valuethe new weight
+     \exception if index > size of the sequences
+     \exception if 0 > value or value > 1 
+    */
+    void setS1Weight(unsigned int index, float value);
+
+    /*!
+     \brief setS2Weight
+        set the weight for an element of the second sequence
+     \param index element index
+     \param valuethe new weight
+     \exception if index > size of the sequences
+     \exception if 0 > value or value > 1 
+    */
+    void setS2Weight(unsigned int index, float value);
+
+    /*!
+     \brief setS2Weight
+        set the weight for an element of a carateristique vector
+     \param index element index
+     \param valuethe new weight
+     \exception if index > iPsizeVecCarac
+     \exception if 0 > value or value > 1
+     \exception if iPsizeVecCarac is not defined
+    */
+    void setVecCaracWeight(unsigned int index, float value);
+
+    /*!
+     \brief setMatrixWeight
+         set the weight of an element in the distance matrix
+     \param index1 index of the element in the first sequence
+     \param index2 index of the element in the second sequence
+     \param value new weight value
+     \exception if index > size of the sequences
+     \exception if 0 > value or value > 1 
+    */
+    void setMatrixWeight(unsigned int index1,unsigned int index2, float value);
+
+
+    /*!
+     \brief setDistanceWeight
+         set the weight of the final distance
+     \param value the new value
+     \exception if 0 <= value <= 1 
+    */
+    void setDistanceWeight(float value);
+
+    /*!
+     \brief setS1Size
+         set the size of the first sequence
+     \param value the new size
+    */
+    void setS1Size(unsigned int value);
+
+    /*!
+     * \brief getS1Size
+		get the size of the first sequence
+     * \return the size
+     */
+    int getS1Size();
+
+    /*!
+     \brief setS2Size
+         set the size of the second sequence
+     \param value the new size
+    */
+    void setS2Size(unsigned int value);
+
+    /*!
+     * \brief getS2Size
+		get the size of the second sequence
+     * \return the size
+     */
+    int getS2Size();
+
+    /*!
+     \brief setVecCaracSize
+         set the size of a vector
+     \param value the new size
+    */
+    void setVecCaracSize(unsigned int value);
+
+    /*!
+     * \brief getVecCaracSize
+	 get the size of the caracteristic vector
+     * \return the size
+     */
+    int getVecCaracSize();
+
+    /*!
+     * \brief getS1Weight
+     * \param index
+     * \return the value of the weight for the index
+     */
+    float getS1Weight(unsigned int index);
+
+    /*!
+     * \brief getS2Weight
+     * \param index
+     * \return the value of the weight for the index
+     */
+    float getS2Weight(unsigned int index);
+    /*!
+     * \brief getMatrixWeight
+     * \param i1 the index of th fisrt element
+     * \param i2, the index of the second element
+     * \return the value of the weight between the two element
+     */
+    float getMatrixWeight(unsigned int i1, unsigned int i2);
+
+    /*!
+     * \brief getDistanceWeigh
+     * \return the weight applied to the distance
+     */
+    float getDistanceWeigh();
+
+    /*!
+     * \brief getVecCarac
+     * \param index
+     * \return the weight of an element of a caracteristic vector
+     */
+    float getVecCarac(unsigned int index);
+
+    /*!
+     * \brief getThreshold
+     * \return the threhold for the CDP
+     */
+	float getThreshold();
+
+	/*!
+     \brief setThreshold
+        set the threshold for the CDP
+     \param the threshold value
+    */
+	void setThreshold(float threshold);
+
+    /*!
+     * \brief getLevenshteinCost
+     * \return one of the cost of a levenshtein
+	 * 0 : addcost
+	 * 1 : delcost
+	 * 2 : transcost
+     */
+	float getLevenshteinCost(unsigned int index);
+
+	/*!
+     \brief setLevenshteinCost
+         set the levenshtein cost
+     \param addCost
+     \param delCost
+     \param transCost
+    */
+	void setLevenshteinCost(float addCost,float delCost,float transCost);
+
+    /*!
+     * \brief getMvMElastic
+     * \return the elasticty of the MVM
+     */
+	int getMvMElastic(int max);
+
+	/*!
+     \brief setMvMDivElastic
+        set the elasticity for the MVM
+     \param elest the elasticity value
+    */
+	void setMvMElastic(int elast);
+
+	/*!
+	* \brief getfPFsmSkipCost
+     * \return the FSM skipCost
+     */
+	float getfPFsmSkipCost();
+
+	/*!
+     \brief setfPFsmSkipCost
+         set the FSM skpiCost
+     \param skipValue, the new value of the skipCost
+    */
+	void setfPFsmSkipCost(float skipValue);
+
+	/*!
+	* \brief getfPFsmSmallSkipCost
+     * \return the smallSkipCost of the FSM
+     */
+	float getfPFsmSmallSkipCost();
+
+	/*!
+     \brief setfPFsmSmallSkipCost
+        set the smallSkipCost of the FSM
+     \param skipValue, the new value of the smallSkipCost
+    */
+	void setfPFsmSmallSkipCost(float skipValue);
+
+	/*!
+     * \brief getfPFsmWeight
+     * \return the weight of a jump in FSM
+     */
+	float getfPFsmWeight();
+	/*!
+     \brief setfPFsmWeight
+         set the weight of a jump for FSM
+     \param w the new value
+    */
+	void setfPFsmWeight(float w);
+
+	/*!
+     * \brief getfPFsmElesticity
+     * \return the FSM elasticity
+     */
+	int getiPFsmElesticity();
+
+	/*!
+     \brief setfPFsmElesticity
+         set the elasticity of the FSM
+     \param elasticity, the new value
+    */
+	void setiPFsmElesticity(int elasticity);
+
+	/*!
+     \brief setiPFsmNbOfMinByLine
+         set the number of element in a line for the calcul of the FSM skipCost
+     \param nb, the new value
+    */
+	void setiPFsmNbOfMinByLine(int nb);
+
+	/*!
+     * \brief getiPFsmNbOfMinByLine
+	 * \param the number max of element which can be taken
+     * \return the number of element taken in the calcul of the skipCost
+     */
+	int getiPFsmNbOfMinByLine(int max);
+
+	/*!
+     \brief setbPFsmFirstColForResult
+         set if the minimum research begin at the begin of the sequence in the FSM
+     \param line, the new value
+    */
+	void setbPFsmFirstColForResult(int line);
+
+	/*!
+     * \brief getbPFsmFirstColForResult
+     * \return the minmum index for the research of the min element
+     */
+	bool getbPFsmFirstColForResult();
+
+	/*!
+     \brief setiPFsmTypeOfResult
+         set the type of result for the FSM
+     \param type, the new value
+    */
+	void setiPFsmTypeOfResult(int type);
+
+	/*!
+     * \brief getiPFsmTypeOfResult
+     * \return the type of result wanted for the FSM
+     */
+	int getiPFsmTypeOfResult();
+
+	/*!
+     \brief setfPFsmDefaultSkipCost
+         set the default skipCost for the FSM
+     \param defaultSkipcost, the new value
+    */
+	void setfPFsmDefaultSkipCost(float defaultSkipcost);
+
+	/*!
+     * \brief getfPFsmDefaultSkipCost
+     * \return the default FSM skipCost
+     */
+	float getfPFsmDefaultSkipCost();
+
+	/*!
+     \brief setiPFsmStandartDeviationNumber
+         set the number of standart deviastion for the calcul of the FSM skipCost
+     \param nb, the new value
+    */
+	void setiPFsmStandartDeviationNumber(int nb);
+
+	/*!
+     * \brief getiPFsmStandartDeviationNumber
+     * \return the number of the standart deviation
+     */
+	int getiPFsmStandartDeviationNumber();
+};
+}
+#endif // PARAMETRAGE_H

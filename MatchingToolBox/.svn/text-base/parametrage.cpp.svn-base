@@ -1,0 +1,405 @@
+/*!
+  \author Abdourahman Aden Hassan
+  \date 22/12/2013
+ */
+#include "parametrage.h"
+#include "Exc.h"
+
+calc::Parametrage::Parametrage(unsigned int sizeS1,unsigned int sizeS2)
+{
+    iPsizeS1 = sizeS1;
+    iPsizeS2 = sizeS2;
+    iPsizeVecCarac = -1;
+    vPweigtDistance = 1;
+    vPweightS1 = new vector<float>(iPsizeS1,1);
+    vPweightS2 = new vector<float>(iPsizeS2,1);
+    vPweightMatrice = new vector<vector<float>*>(iPsizeS1);
+	vPLevenshteinCost = new vector<float>(3,1);
+    unsigned int it = 0;
+    while(it<vPweightMatrice->size())
+    {
+        vector<float> * n = new vector<float>(iPsizeS2,1);
+        vPweightMatrice->at(it) = n;
+        it = it + 1;
+    }
+    vPweightVecCarac = 0;
+	fPThreshold = -1;
+	iPMvmElastic = 10;
+
+	iPFsmElesticity = -1;
+	fPFsmWeight = 1;
+	fPFsmSmallSkipCost = -1;
+	fPFsmSkipCost = -1;
+	iPFsmTypeOfResult = 0;
+	iPFsmNbOfMinByLine = 2;
+	bPFsmFirstColForResult = true;
+	fPFsmDefaultSkipCost = 0.1f;
+	iPFsmStandartDeviationNumber = 2;
+}
+
+calc::Parametrage::Parametrage(unsigned int sizeS1, unsigned int sizeS2,unsigned int sizeVecCarac)
+{
+    iPsizeS1 = sizeS1;
+    iPsizeS2 = sizeS2;
+    iPsizeVecCarac = sizeVecCarac;
+    vPweigtDistance = 1;
+    vPweightS1 = new vector<float>(iPsizeS1,1);
+    vPweightS2 = new vector<float>(iPsizeS2,1);
+    vPweightMatrice = new vector<vector<float>*>(iPsizeS1);
+	vPLevenshteinCost = new vector<float>(3,1);
+    unsigned int it = 0;
+    while(it<vPweightMatrice->size())
+    {
+        vector<float> * n = new vector<float>(iPsizeS2,1);
+        vPweightMatrice->at(it) = n;
+        it = it + 1;
+    }
+    vPweightVecCarac = new vector<float>(iPsizeVecCarac,1);
+	fPThreshold = -1;
+	iPMvmElastic = 10;
+
+	iPFsmElesticity = -1;
+	fPFsmWeight = 1;
+	fPFsmSmallSkipCost = -1;
+	fPFsmSkipCost = -1;
+	iPFsmTypeOfResult = 0;
+	iPFsmNbOfMinByLine = 2;
+	bPFsmFirstColForResult = true;
+	fPFsmDefaultSkipCost = 0.1f;
+	iPFsmStandartDeviationNumber = 2;
+}
+
+calc::Parametrage::~Parametrage()
+{
+    int it = 0;
+    int max = vPweightMatrice->size();
+    while(it<max)
+    {
+        vector<float> * p = vPweightMatrice->at(it);
+        delete p;
+        it = it +1;
+    }
+    delete vPweightMatrice;
+    delete vPweightS1;
+    delete vPweightS2;
+    delete vPweightVecCarac;
+}
+
+void calc::Parametrage::setS1Weight(unsigned int index, float value)
+{
+    if(index>=iPsizeS1)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(value<0 || value > 1)
+    {
+        exc::SequenceMatchingException::genererException("Weight value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    vPweightS1->at(index) = value;
+}
+
+void calc::Parametrage::setS2Weight(unsigned int index, float value)
+{
+    if(index>=iPsizeS2)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(value<0 || value > 1)
+    {
+        exc::SequenceMatchingException::genererException("Weight value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    vPweightS2->at(index) = value;
+}
+
+void calc::Parametrage::setVecCaracWeight(unsigned int index, float value)
+{
+    if(vPweightVecCarac == 0)
+    {
+        exc::SequenceMatchingException::genererException("No caracteristic vector size defined",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(index>=iPsizeVecCarac)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(value<0 || value > 1)
+    {
+        exc::SequenceMatchingException::genererException("Weight value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    vPweightVecCarac->at(index) = value;
+}
+
+void calc::Parametrage::setMatrixWeight(unsigned int index1, unsigned int index2, float value)
+{
+    if(index1>=iPsizeS1 || index2>=iPsizeS2)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(value<0 || value > 1)
+    {
+        exc::SequenceMatchingException::genererException("Weight value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    (vPweightMatrice->at(index1))->at(index2) = value;
+}
+
+void calc::Parametrage::setDistanceWeight(float value)
+{
+    if(value<0 || value > 1)
+    {
+        exc::SequenceMatchingException::genererException("Weight value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    vPweigtDistance = value;
+}
+
+void calc::Parametrage::setS1Size(unsigned int value)
+{
+    iPsizeS1 = value;
+    unsigned int it = 0;
+    unsigned int max = vPweightMatrice->size();
+    while(it<max)
+    {
+        vector<float> * p = vPweightMatrice->at(it);
+        delete p;
+        it = it +1;
+    }
+    delete vPweightMatrice;
+    delete vPweightS1;
+    delete vPweightS2;
+    vPweightS1 = new vector<float>(iPsizeS1,1);
+    vPweightS2 = new vector<float>(iPsizeS2,1);
+    vPweightMatrice = new vector<vector<float>*>(iPsizeS1);
+    it = 0;
+    while(it<vPweightMatrice->size())
+    {
+        vector<float> * n = new vector<float>(iPsizeS2,1);
+        vPweightMatrice->at(it) = n;
+        it = it + 1;
+    }
+
+}
+
+int calc::Parametrage::getS1Size()
+{
+    return iPsizeS1;
+}
+
+void calc::Parametrage::setS2Size(unsigned int value)
+{
+    iPsizeS2 = value;
+    unsigned int it = 0;
+    unsigned int max = vPweightMatrice->size();
+    while(it<max)
+    {
+        vector<float> * p = vPweightMatrice->at(it);
+        delete p;
+        it = it +1;
+    }
+    delete vPweightMatrice;
+    delete vPweightS1;
+    delete vPweightS2;
+    vPweightS1 = new vector<float>(iPsizeS1,1);
+    vPweightS2 = new vector<float>(iPsizeS2,1);
+    vPweightMatrice = new vector<vector<float>*>(iPsizeS1);
+    it = 0;
+    while(it<vPweightMatrice->size())
+    {
+        vector<float> * n = new vector<float>(iPsizeS2,1);
+        vPweightMatrice->at(it) = n;
+        it = it + 1;
+    }
+}
+
+int calc::Parametrage::getS2Size()
+{
+    return iPsizeS2;
+}
+
+void calc::Parametrage::setVecCaracSize(unsigned int value)
+{
+    iPsizeVecCarac = value;
+    delete vPweightVecCarac;
+    vPweightVecCarac = new vector<float>(iPsizeVecCarac,1);
+}
+
+int calc::Parametrage::getVecCaracSize()
+{
+    return iPsizeVecCarac;
+}
+
+float calc::Parametrage::getS1Weight(unsigned int index)
+{
+    if(index>=iPsizeS1)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    return vPweightS1->at(index);
+}
+
+float calc::Parametrage::getS2Weight(unsigned int index)
+{
+    if(index>iPsizeS2)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    return vPweightS2->at(index);
+}
+
+float calc::Parametrage::getMatrixWeight(unsigned int i1, unsigned int i2)
+{
+    if(i1>=iPsizeS1 || i2>=iPsizeS2)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    return vPweightMatrice->at(i1)->at(i2);
+}
+
+float calc::Parametrage::getDistanceWeigh()
+{
+    return vPweigtDistance;
+}
+
+float calc::Parametrage::getVecCarac(unsigned int index)
+{
+    if(vPweightVecCarac == 0)
+    {
+        exc::SequenceMatchingException::genererException("No caracteristic vector size defined",PARAMETRE_INVALIDE,__LINE__);
+    }
+    if(index>=iPsizeVecCarac)
+    {
+        exc::SequenceMatchingException::genererException("Index value error",PARAMETRE_INVALIDE,__LINE__);
+    }
+    return vPweightVecCarac->at(index);
+}
+
+float calc::Parametrage::getThreshold()
+{
+	return fPThreshold;
+}
+
+void calc::Parametrage::setThreshold(float threshold)
+{
+	fPThreshold = threshold;
+}
+
+float calc::Parametrage::getLevenshteinCost(unsigned int index){
+
+	return vPLevenshteinCost->at(index);
+}
+
+void calc::Parametrage::setLevenshteinCost(float addCost,float delCost,float transCost){
+
+	vPLevenshteinCost->at(0) = addCost;
+	vPLevenshteinCost->at(1) = delCost;
+	vPLevenshteinCost->at(2) = transCost;
+}
+
+int calc::Parametrage::getMvMElastic(int max)
+{
+	if(iPMvmElastic > max)
+		return max;
+	return iPMvmElastic;
+}
+
+void calc::Parametrage::setMvMElastic(int elast){
+
+	iPMvmElastic = elast;
+}
+
+int calc::Parametrage::getiPFsmElesticity()
+{
+	return iPFsmElesticity;
+}
+
+void calc::Parametrage::setiPFsmElesticity(int elasticity){
+
+	iPFsmElesticity = elasticity;
+}
+
+float calc::Parametrage::getfPFsmWeight()
+{
+	return fPFsmWeight;
+}
+
+void calc::Parametrage::setfPFsmWeight(float w){
+
+	fPFsmWeight = w;
+}
+
+float calc::Parametrage::getfPFsmSmallSkipCost()
+{
+	return fPFsmSmallSkipCost;
+}
+
+void calc::Parametrage::setfPFsmSmallSkipCost(float skipValue){
+
+	fPFsmSmallSkipCost = skipValue;
+}
+
+float calc::Parametrage::getfPFsmSkipCost()
+{
+	return fPFsmSkipCost;
+}
+
+void calc::Parametrage::setfPFsmSkipCost(float skipValue){
+
+	fPFsmSkipCost = skipValue;
+}
+
+void calc::Parametrage::setiPFsmNbOfMinByLine(int nb)
+{
+	if(nb > 0)
+		iPFsmNbOfMinByLine = nb;
+}
+
+int calc::Parametrage::getiPFsmNbOfMinByLine(int max)
+{
+	if(iPFsmNbOfMinByLine > max)
+		return max;
+
+	return iPFsmNbOfMinByLine;
+}
+
+void calc::Parametrage::setbPFsmFirstColForResult(int line)
+{
+	if(line <= 0)
+		bPFsmFirstColForResult = true;
+	else
+		bPFsmFirstColForResult = false;
+}
+
+bool calc::Parametrage::getbPFsmFirstColForResult()
+{
+	return bPFsmFirstColForResult;
+}
+
+void calc::Parametrage::setiPFsmTypeOfResult(int type)
+{
+	if(type > 2 || type <= 0)
+		iPFsmTypeOfResult = 0;
+	else
+		iPFsmTypeOfResult = type;
+}
+
+int calc::Parametrage::getiPFsmTypeOfResult()
+{
+	return iPFsmTypeOfResult;
+}
+
+void calc::Parametrage::setfPFsmDefaultSkipCost(float defaultSkipCost)
+{
+	fPFsmDefaultSkipCost = defaultSkipCost;
+}
+
+float calc::Parametrage::getfPFsmDefaultSkipCost()
+{
+	return fPFsmDefaultSkipCost;
+}
+
+void calc::Parametrage::setiPFsmStandartDeviationNumber(int nb)
+{
+	if(nb > 0)
+		iPFsmStandartDeviationNumber = nb;
+}
+int calc::Parametrage::getiPFsmStandartDeviationNumber()
+{
+	return iPFsmStandartDeviationNumber;
+}

@@ -1,0 +1,72 @@
+/*!
+* \author Abdourahman Aden Hassan
+	  Bastien Meunier
+* \date 24/12/2013
+        20/01/2015
+* \package inout
+  \class SequenceParser abstract
+  \brief Class to read and parse a file
+ */
+#ifndef SEQUENCEPARSER_H
+#define SEQUENCEPARSER_H
+#include "Calc.h"
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+#include <regex.h>
+#include "rapidxml-1.13/rapidxml_print.hpp"
+#include "rapidxml-1.13/rapidxml_utils.hpp"
+
+#define CHARACTER 0
+#define NUMERIC 1
+#define VECTOR 2
+#define CASSEP 0
+#define CASINT 1
+#define CASVAL 2
+
+#ifdef __linux__
+#include <uuid/uuid.h>
+#endif // defined
+
+namespace inout {
+class SequenceParser
+{
+
+public:
+	/*!
+		\brief Constructor
+	*/
+    SequenceParser();
+    virtual ~SequenceParser();
+
+    /*!
+     * \brief readFile
+	 read or parse a document in a object instance
+     * \param document
+     * \return the instance of an object
+     */
+	virtual void * readFile(void * document) = 0;
+
+	/*!
+	The classe of a sequence when test on sequence
+	*/
+	vector<string> classes;
+
+	/*!
+	* if the element of the sequences must be read a vector
+	*/
+	int vecteur;
+
+protected:
+
+    /*!
+     * \brief checkDocument, not use in the current implementation
+	 * check if the document has the good format
+     * \param vector of element read from a file
+     * \exception invalid file
+     */
+    int checkDocument(vector<string> list);
+    vector<char *> listPoubelle;
+};
+}
+#endif // SEQUENCEPARSER_H
