@@ -1,8 +1,14 @@
 #include <iostream>
 #include "gtest\gtest.h"
+//#include "vld.h"
 
-
-int main(int argc, char **argv) {
+int main(int argc, char *argv[])
+{
+	int testResult = 0;
+	// Runs tests
 	::testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+	testResult = RUN_ALL_TESTS();
+	
+	std::getchar();
+	return testResult;
 }

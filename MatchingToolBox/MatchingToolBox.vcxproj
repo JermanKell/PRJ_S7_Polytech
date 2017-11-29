@@ -11,65 +11,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="CDPCorrespondence.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="CharacteristicVector.cpp" />
-    <ClCompile Include="CommandLine.cpp" />
-    <ClCompile Include="CommandLineApplication.cpp" />
-    <ClCompile Include="Correspondence.cpp" />
-    <ClCompile Include="DTWCorrespondence.cpp" />
-    <ClCompile Include="ESCCorrespondence.cpp" />
-    <ClCompile Include="CSVParser.cpp" />
-    <ClCompile Include="MatchingExecutor.cpp" />
-    <ClCompile Include="Parameters.cpp" />
-    <ClCompile Include="FSMCorrespondance.cpp" />
-    <ClCompile Include="LCSCorrespondence.cpp" />
-    <ClCompile Include="LevenstheinCorrespondence.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MVMCorrespondence.cpp" />
-    <ClCompile Include="Numeric.cpp" />
-    <ClCompile Include="ParamParser.cpp" />
-    <ClCompile Include="Sequence.cpp" />
-    <ClCompile Include="SequenceParser.cpp" />
-    <ClCompile Include="XMLParser.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CDPCorrespondence.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="CharacteristicVector.h" />
-    <ClInclude Include="Command.h" />
-    <ClInclude Include="CommandLine.h" />
-    <ClInclude Include="CommandLineApplication.h" />
-    <ClInclude Include="Correspondence.h" />
-    <ClInclude Include="CorrespondenceTools.h" />
-    <ClInclude Include="DTWCorrespondence.h" />
-    <ClInclude Include="Element.h" />
-    <ClInclude Include="ESCCorrespondence.h" />
-    <ClInclude Include="CSVParser.h" />
-    <ClInclude Include="MatchingExecutor.h" />
-    <ClInclude Include="Parameters.h" />
-    <ClInclude Include="FSMCorrespondence.h" />
-    <ClInclude Include="InOut.h" />
-    <ClInclude Include="LCSCorrespondence.h" />
-    <ClInclude Include="LevenstheinCorrespondence.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="MVMCorrespondence.h" />
-    <ClInclude Include="Numeric.h" />
-    <ClInclude Include="ParamParser.h" />
-    <ClInclude Include="Sequence.h" />
-    <ClInclude Include="SequenceMatchingException.h" />
-    <ClInclude Include="SequenceParser.h" />
-    <ClInclude Include="Support.h" />
-    <ClInclude Include="XMLParser.h" />
+    <ProjectReference Include="..\MatchingLibrary\MatchingLibrary.vcxproj">
+      <Project>{fdf23241-8f8b-488b-a6b3-178feebdb36d}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C4BEAB55-9358-4234-88C0-1D96DA1E00E6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>MatchingToolBox</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -108,7 +61,9 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MatchingLibrary;$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,7 +81,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)MatchingLibrary;$(SolutionDir)regex-2.7-lib\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

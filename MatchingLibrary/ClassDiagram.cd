@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="model::Character" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAIABAAAAEAAEAIAAAAAAAAACAA=</HashCode>
+      <FileName>Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="model::CharacteristicVector" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAIIABAEAAEAAAAYCAAAgAAAAQAA=</HashCode>
+      <FileName>CharacteristicVector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="model::Element" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAgIBAAAAUAAAAIAAAAAAAAAABA=</HashCode>
+      <FileName>Element.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="model::Numeric" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAIABAACAEAAAEIAAAAAAAAAAAA=</HashCode>
+      <FileName>Numeric.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="model::Sequence" Collapsed="true">
+    <Position X="16.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAIABEAAMAAAAAAAAAADAAAAQAAAAIAAAgAAAEAABA=</HashCode>
+      <FileName>Sequence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="exc::SequenceMatchingException" Collapsed="true">
+    <Position X="18.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAAQACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>SequenceMatchingException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::CDPCorrespondence" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAABAAAACAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>CDPCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::DTWCorrespondence" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAAAAABAAAAAAI=</HashCode>
+      <FileName>DTWCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::ESCCorrespondence" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAACAAAAI=</HashCode>
+      <FileName>ESCCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::FSMCorrespondence" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAEAAAAAAAAAAAAAAAAAEAAAAAAAAAI=</HashCode>
+      <FileName>FSMCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::LCSCorrespondence" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgMAAAAAAAAAACAAQAAAAEAAAAAAAACAAAAI=</HashCode>
+      <FileName>LCSCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::LevenstheinCorrespondence" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAgIAAAACAAAAAKAAQAAACAAAAAAAAACIAAAI=</HashCode>
+      <FileName>LevenstheinCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="support::MVMCorrespondence" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgIAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAI=</HashCode>
+      <FileName>MVMCorrespondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="commandline::CommandLine" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIwACgMAAAAAAAhACAgAAAAAAAAAAQAAAgEAAAAgAAA=</HashCode>
+      <FileName>CommandLine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="commandline::CommandLineApplication" Collapsed="true">
+    <Position X="8.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAoAAAABBAAAAAAAACUAAIAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>CommandLineApplication.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tools::Correspondence" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACAQJgEAKCAgAAAAACAAAAAAAAACAAACIIAAAABI=</HashCode>
+      <FileName>Correspondence.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tools::MatchingExecutor" Collapsed="true">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAGIFCCCAQACAAAQCEAAAAIRABAgCAABAIAACAICI=</HashCode>
+      <FileName>MatchingExecutor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tools::Parameters" Collapsed="true">
+    <Position X="18.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBADQAkCgQAAAGAgAFBAVAgAAIAUAGGABJIAAECCIAQ=</HashCode>
+      <FileName>Parameters.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="inout::CSVParser" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>CSVParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="inout::EXTParser" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAQAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EXTParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="inout::ParamParser" Collapsed="true">
+    <Position X="7.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAIAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>ParamParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="inout::SequenceParser" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAABAAAAAAAAAAAAAABAAARABAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>SequenceParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="inout::XMLParser" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>XMLParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="tools::__unnamed_struct_02d0_1" Collapsed="true">
+    <Position X="1.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Correspondence.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="tools::ResultCorrespondence" Collapsed="true">
+    <Position X="1.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Correspondence.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="inout::SEQUENCE_TYPE" Collapsed="true">
+    <Position X="16.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAACAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SequenceParser.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

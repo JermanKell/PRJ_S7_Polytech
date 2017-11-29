@@ -1,0 +1,30 @@
+<!DOCTYPE Parameters>
+<Lists>
+  <Comparaison size1="2" size2="2" isVector="1" sizeVector="2" weightDistance="2.0">
+    <LevenshteinParam addCost="1" delCost="2" transCost="3" />
+    <CdpParam threshold="2" />
+    <MvmParam divElast="1" />
+    <FsmParam Elasticity="1" Weight="2.0" SkipCost="1.0" SmallSkipCost="1.0" TypeOfResult="1" ResultFirstColumn="2"
+      NbMinPerLine="2" DefaultSkipCost="1.0" StandardDeviation="1" />
+    <WeightNode>
+      <sequenceWeight1>
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+      </sequenceWeight1>
+      <sequenceWeight2>
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+      </sequenceWeight2>
+      <vectorWeights>
+        <sequenceVectorElement value="0.5" />
+        <sequenceVectorElement value="0.5" />
+      </vectorWeights>
+      <sequenceMatrix>
+        <sequenceMatrixElement value="0.8" />
+        <sequenceMatrixElement value="0.8" />
+        <sequenceMatrixElement value="0.8" />
+        <sequenceMatrixElement value="0.8" />
+      </sequenceMatrix>
+    </WeightNode>
+  </Comparaison>
+</Lists>

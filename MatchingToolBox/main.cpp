@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include "InOut.h"
-#include "Command.h"
-#include "SequenceMatchingException.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
 #include <string.h>
+
+#include "InOut.h"
+#include "Command.h"
+#include "SequenceMatchingException.h"
 
 using namespace std;
 
@@ -14,16 +15,16 @@ int main(int argc, char *argv[])
 	clock_t begin = clock();
 	commandline::CommandLineApplication *c;
 
-	/* // Uncomment this to test 
-	char* args[] = { "MatchingToolBox.exe", "-sequences",
-			"..\\TestingMaterial\\target.csv",
-			"..\\TestingMaterial\\ref.csv",
-			"-method", "lvn", "--costs", "1", "1", "1", "-result" , "..\\TestingMaterial"
+	// Uncomment this to test *
+	/*char* args[] = { "MatchingToolBox.exe", "-sequences",
+			"..\\TestingMaterial\\target_character.csv",
+			"..\\TestingMaterial\\ref_character.csv",
+			"-method", "lvn", "-result" , "..\\TestingMaterial\\results", "-parser", "csv", "-type", "character"
 	};
 	c = new commandline::CommandLineApplication(12, args);*/
-
+	//-sequences $(SolutionDir)\TestingMaterial\target_vector.csv $(SolutionDir)\TestingMaterial\ref_vector.csv -method dtw -result $(SolutionDir)\TestingMaterial\ResultFile
 	c = new commandline::CommandLineApplication(argc, argv);
-	
+
 	try {
 		c->run();
 	} catch (exc::SequenceMatchingException & e) {
@@ -31,11 +32,11 @@ int main(int argc, char *argv[])
 		std::cout << "Use --help" << std::endl;
 	}
 
+
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 	std::cout << "Matching sequences took : " << elapsed_secs << " seconds" << endl;
-
-	int test = 0;
-	cin >> test;
+	
+	getchar();
 	return 0;
 }

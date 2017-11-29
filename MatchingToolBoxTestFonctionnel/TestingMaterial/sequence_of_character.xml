@@ -1,0 +1,6 @@
+<Sequences />
+<Type id="0" />
+<Sequence idS="string">
+  <Element id="string" value="a" />
+  <Element id="string" value="b" />
+</Sequence>

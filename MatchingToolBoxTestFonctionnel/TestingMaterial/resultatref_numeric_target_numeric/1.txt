@@ -1,0 +1,9 @@
+Result 
+Distance = 5
+Correspondance 
+
+1 2 9 3 3 5 9 
+= = + + o o o 
+1 2     8 6 8 
+
+

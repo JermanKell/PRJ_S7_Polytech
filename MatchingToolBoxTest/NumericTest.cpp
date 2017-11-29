@@ -1,18 +1,19 @@
 #include "Numeric.h"
 #include "gtest\gtest.h"
 
-TEST(Numeric, Playing_with_values) {
-	model::Numeric n(4);
-	ASSERT_EQ(4, n.getValue());
-	n.setValue(5);
-	ASSERT_NE(4, n.getValue());
-	ASSERT_EQ(5, n.getValue());
+TEST(NumericTest, setting_getting_value) {
+	model::Numeric n(5);
+	ASSERT_EQ(n.getValue(), 5);
+
+	n.setValue(4);
+	ASSERT_EQ(n.getValue(), 4);
 }
 
-TEST(Numeric, Numeric_distance) {
-	model::Numeric* n1 = new model::Numeric(5);
-	model::Numeric* n2 = new model::Numeric(5);
+TEST(NumericTest, calculating_distance) {
+	model::Numeric n1(5);
+	model::Numeric n2(4);
 
-	float distance = n1->distance(n1, n2);
-	ASSERT_EQ(0, distance);
+	float distance = n1.distance(&n1, &n2);
+
+	ASSERT_EQ(distance, 1.0f);
 }
