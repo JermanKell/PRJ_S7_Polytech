@@ -134,6 +134,8 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		found = fileRname.find_last_of(".");
 		fileRname = fileRname.substr(0, found);
 
+		parser->getType();
+
 		#if defined _WIN32 || defined _WIN64
 			directory += "\\resultat" + fileRname + "_" + fileTname + "\\";
 		#elif defined __linux__

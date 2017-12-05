@@ -20,12 +20,12 @@ void CommandLineApplication::expect() {
 	addMethod(_m2, new support::LCSCorrespondence());
 	addMethod(_m3, new support::DTWCorrespondence());
 	addMethod(_m4, new support::MVMCorrespondence());
-	addMethod(_m5, new support::CDPCorrespondence());
+	addMethod(_m5, new support::CDPCorrespondence());		// MEMORY LEAKS!
 	addMethod(_m6, new support::FSMCorrespondence());
 	addMethod(_m7, new support::ESCCorrespondence());
 	// Expected parsers
 	addParser(_csv, new inout::CSVParser());
-	addParser(_ext, new inout::EXTParser());
+	addParser(_ext, new inout::EXTParser());		//DITTO
 	addParser(_xml, new inout::XMLParser());
 	// Expected types
 	expectValue(_type, _type1);
@@ -211,5 +211,19 @@ void CommandLineApplication::run() {
 
 			executor->execute();
 	}
+	
+						/////////////////////// A METTRE DANS DESTRUCTEUR /////////////////////////////
+	map<std::string, tools::Correspondence*>::iterator it;
+	for (it = methods.begin(); it != methods.end(); ++it)
+	{
+		delete it->second;
+	}
+
+	map<std::string, inout::SequenceParser*>::iterator it2;
+	for (it2 = parsers.begin(); it2 != parsers.end(); ++it2)
+	{
+		delete it2->second;
+	}
+
 }
 

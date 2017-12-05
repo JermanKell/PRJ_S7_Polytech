@@ -23,6 +23,7 @@ bool Readfile::compareFile()
 
 	ifstream file1(filename.c_str(), ios::in);
 	ifstream file2(filename2.c_str(), ios::in);
+
 	if (file1.fail())
 	{
 		//throw string("The file 1 : " + filename + " doesn't exist or a problem of reading");
