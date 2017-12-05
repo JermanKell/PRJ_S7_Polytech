@@ -16,16 +16,16 @@ void CommandLineApplication::expect() {
 	expectArgument(_dir);
 	expectArgument(_help);
 	// Expected methods
-	addMethod(_m1, new support::LevenstheinCorrespondence());
+	addMethod(_m1, new support::LevenstheinCorrespondence()); // MEMORY LEAKS!
 	addMethod(_m2, new support::LCSCorrespondence());
 	addMethod(_m3, new support::DTWCorrespondence());
 	addMethod(_m4, new support::MVMCorrespondence());
-	addMethod(_m5, new support::CDPCorrespondence());		// MEMORY LEAKS!
+	addMethod(_m5, new support::CDPCorrespondence());		
 	addMethod(_m6, new support::FSMCorrespondence());
 	addMethod(_m7, new support::ESCCorrespondence());
 	// Expected parsers
 	addParser(_csv, new inout::CSVParser());
-	addParser(_ext, new inout::EXTParser());		//DITTO
+	addParser(_ext, new inout::EXTParser());
 	addParser(_xml, new inout::XMLParser());
 	// Expected types
 	expectValue(_type, _type1);
@@ -210,6 +210,8 @@ void CommandLineApplication::run() {
 			}
 
 			executor->execute();
+			delete executor; ///////////////////////////////////////ajouté
+
 	}
 	
 						/////////////////////// A METTRE DANS DESTRUCTEUR /////////////////////////////
