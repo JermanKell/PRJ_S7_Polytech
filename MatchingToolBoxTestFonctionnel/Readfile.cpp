@@ -1,4 +1,5 @@
 #include "Readfile.h"
+#include "SequenceMatchingException.h"
 Readfile::Readfile()
 {
 }
@@ -24,13 +25,15 @@ bool Readfile::compareFile()
 	ifstream file2(filename2.c_str(), ios::in);
 	if (file1.fail())
 	{
-		cerr << "Le fichier 1 : " << filename << " n'existe pas ou un problème de lecteure ! " << " ligne : " << 16 << endl ;
-		compare = false ;
+		//throw string("The file 1 : " + filename + " doesn't exist or a problem of reading");
+		cerr << "The file 1 : " << filename << " doesn't exist or a problem of reading ! " << endl ;
+		return false;
 	}
 	if (file2.fail())
 	{
-		cerr << "Le fichier 2 : " << filename2 << " n'existe pas ou un problème de lecteure ! " << " ligne : " << 17 << endl ;
-		compare = false ;
+		//throw string("The file 2 : " + filename + " doesn't exist or a problem of reading");
+		cerr << "The file 2 : " << filename2 << " doesn't exist or a problem of reading ! " << endl ;
+		return false;
 	}
 
 	/*

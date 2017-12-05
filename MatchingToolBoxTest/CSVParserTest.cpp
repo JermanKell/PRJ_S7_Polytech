@@ -39,7 +39,7 @@ TEST(CSVParserTest, reading_vector_csv_file) {
 	// There should be one sequence
 	ASSERT_EQ(sequences->size(), 1);
 
-	// The sequence should have 5 numbers
+	// The sequence should have 367 numbers
 	ASSERT_EQ(sequences->at(0)->getSize(), 367);
 
 	free(sequences);
