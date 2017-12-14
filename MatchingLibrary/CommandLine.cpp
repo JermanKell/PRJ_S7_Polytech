@@ -58,18 +58,18 @@ std::string CommandLine::getEnteredValue(std::string argument, unsigned int posi
 }
 
 void CommandLine::prepareCommand(int argc, char *argv[]) {
-	std::string* lastArgument = 0;
+	std::string lastArgument = "";	//pointeur string changé en string =>correction fuite de 2 blocks
 	for (int i = 1; i < argc; i++) {
 		// If a word begins with '-' then it's considered as an argument, or else it's considered a value
 		if (argv[i][0] == '-') {
-			delete lastArgument;
-			lastArgument = new std::string(argv[i]);
-			enterArgument(*lastArgument);
+			//delete lastArgument; //delete supprimé
+			lastArgument = std::string(argv[i]); //objet, plus un pointeur
+			enterArgument(lastArgument);	//passage objet et plus un pointeur
 		}
 		else
 		{
 			std::string value(argv[i]);
-			enterValue(*lastArgument, value);
+			enterValue(lastArgument, value); //objet, plus un pointeur
 		}
 	}
 }

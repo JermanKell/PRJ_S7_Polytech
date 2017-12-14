@@ -121,5 +121,7 @@ namespace commandline {
 		inout::SequenceParser* getParser(std::string name) {
 			return parsers.at(name);
 		}
+
+		virtual ~CommandLineApplication(); //Destructeur ajouté=> libère les maps methods et parsers
 	};
 }

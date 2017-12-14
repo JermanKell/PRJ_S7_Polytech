@@ -90,7 +90,7 @@ Sequence *Sequence::copy() {
 	int it = 0;
 	Sequence *n = new Sequence();
 	while (it < this->getSize()) {
-		n->addElement(this->getElement(it)->copy());
+		n->addElement(this->getElement(it)/*->copy()*/);	//modifié car fuite mémoire: Sequence::addElement(Element *elt) effectue déja une copie
 		it = it + 1;
 	}
 	return n;

@@ -1,5 +1,6 @@
 #include "MatchingExecutor.h"
 
+
 using namespace tools;
 
 MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondence* m)
@@ -70,8 +71,27 @@ std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
 	}
 
 	// Parses the file
-	sequences = (std::vector<model::Sequence*>*) parser->readFile((void*)file.c_str());
+	/////////////////////////////		CONDITION IF ELSE AJOUTE. CORRIGE LE BUG EMPÊCHANT D'UTILISER LE TYPE XML 
+	//  INITIALLEMENT LIGNE sequences = (std::vector<model::Sequence*>*) parser->readFile((void*)file.c_str()); UNIQUEMENT JUSTE AVANT return sequences
+	if (typeid(*parser) == typeid(inout::XMLParser)) {
+		rapidxml::file<> xmlFile(file.c_str());
+		rapidxml::xml_document<> doc;
+		doc.parse<0>(xmlFile.data());
+		sequences = (std::vector<model::Sequence *>*) parser->readFile(&doc);
+	}
+	else {
+		sequences = (std::vector<model::Sequence*>*) parser->readFile((void*)file.c_str());
+	}
+	
 	return sequences;
+	///////////////////////////////////////////A RETIRER, SERT DE TEST POUR LOCALISER LES FUITES
+	/*for (unsigned int uiCount = sequences->size() - 1; uiCount <= 0; uiCount--) {
+		delete sequences->at(uiCount);
+	}
+	delete sequences;
+	std::vector<model::Sequence*> * sequences_a_retirer = new std::vector<model::Sequence*>;
+	return sequences_a_retirer;
+	/////////////////////////////////////FIN A RETIRER//////////////////////////////*/
 }
 
 std::vector<std::string> MatchingExecutor::match(std::vector<model::Sequence*>* target, std::vector<model::Sequence*>* ref)
@@ -104,6 +124,12 @@ std::vector<std::string> MatchingExecutor::match(std::vector<model::Sequence*>* 
 
 				// Format the results
 				resultInFormat = method->format(target->at(iBoucle2), ref->at(iBoucle), result);
+
+				for (int uiBoucle = 0; uiBoucle < result->size(); uiBoucle++) {//Ajouté
+					delete result->at(uiBoucle).correspondanceT1;
+					delete result->at(uiBoucle).correspondanceT2;
+				}
+				delete result;//Ajouté
 			}
 
 			#pragma omp ordered
@@ -134,10 +160,47 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		found = fileRname.find_last_of(".");
 		fileRname = fileRname.substr(0, found);
 
-		parser->getType();
+		string method_name = "";	//ajouté pour spécifier la méthode dans le nom de dossier créé
+		if (typeid(*method) == typeid(support::LevenstheinCorrespondence)) {
+			method_name = "lvn";
+		}
+		else if (typeid(*method) == typeid(support::DTWCorrespondence)) {
+			method_name = "dtw";
+		}
+		else if (typeid(*method) == typeid(support::FSMCorrespondence)) {
+			method_name = "fsm";
+		}
+		else if (typeid(*method) == typeid(support::MVMCorrespondence)) {
+			method_name = "mvm";
+		}
+		else if (typeid(*method) == typeid(support::LCSCorrespondence)) {
+			method_name = "lcs";
+		}
+
+		string type_name = "";	//Ajouté pour spécifier le type dans le nom de dossier créé
+		if (type == inout::SEQUENCE_TYPE::CHARACTER) {
+			type_name = "char";
+		}
+		else if (type == inout::SEQUENCE_TYPE::NUMERIC) {
+			type_name = "num";
+		}
+		else if (type == inout::SEQUENCE_TYPE::NUMERIC) {
+			type_name = "vec";
+		}
+
+		string parser_name = "";	//ajouté pour spécifier le format dans le nom de dossier créé
+		if (typeid(*parser) == typeid(inout::CSVParser)) {
+			parser_name = "csv";
+		}
+		else if (typeid(*parser) == typeid(inout::XMLParser)) {
+			parser_name = "xml";
+		}
+		else if (typeid(*parser) == typeid(inout::EXTParser)) {
+			parser_name = "ext";
+		}
 
 		#if defined _WIN32 || defined _WIN64
-			directory += "\\resultat" + fileRname + "_" + fileTname + "\\";
+			directory += (string)"\\resultat" + "_" + fileRname + "_" + fileTname + "_" + method_name + "_" + type_name + "_" + parser_name + "\\";
 		#elif defined __linux__
 			directory +=
 				"/resultat" + fileRname + "_" + fileTname + "/";
@@ -166,7 +229,7 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 
 std::string MatchingExecutor::execute()
 {
-	std::vector<model::Sequence*>* referenceSequences, *targetSequences;
+	std::vector<model::Sequence*>* referenceSequences, *targetSequences = 0;
 
 	// Reads the second file
 	targetSequences = readFile(targetFile);
@@ -176,9 +239,23 @@ std::string MatchingExecutor::execute()
 
 	//Matching betweend the sequences
 	std::vector<std::string> tabS = match(targetSequences, referenceSequences);
-
 	//Writing the output
 	writeOutput(directory, tabS);
 
+	for (unsigned int uiCount = 0; uiCount < targetSequences->size(); uiCount++) {//Ajouté->libère les pointeurs sequences du vecteur
+		delete targetSequences->at(uiCount);
+	}
+	for (unsigned int uiCount = 0; uiCount <  referenceSequences->size(); uiCount++) {//Ajouté->libère les pointeurs sequences du vecteur
+		delete referenceSequences->at(uiCount);
+	}
+	delete targetSequences;		//Ajouté
+	delete referenceSequences;	//Ajouté
+
 	return directory;
+}
+
+MatchingExecutor::~MatchingExecutor() {	//Destructeur ajouté
+	//delete method; => problème car le pointeur est le meme que dans CommandLineApplication!
+	//delete parameters; => problème car le pointeur est le meme que dans CommandLineApplication!
+	delete parser;
 }

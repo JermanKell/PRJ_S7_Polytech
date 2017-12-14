@@ -12,7 +12,6 @@ void *XMLParser::readFile(void *document) {
 	int sequenceType = -1;
 	std::vector<model::Sequence *> *sequenceList = new std::vector<model::Sequence *>();
 	rapidxml::xml_document<> *xmlDocument = (rapidxml::xml_document<char> *)document;
-
 	if (xmlDocument->first_node("Sequences") == 0) {
 		delete sequenceList;
 		exc::SequenceMatchingException::genererException(
@@ -83,6 +82,7 @@ void *XMLParser::readFile(void *document) {
 				cha->setValue(val_attr->value()[0]);
 				sequence->addElement(cha);
 				elt_node = elt_node->next_sibling();
+				delete cha;//ajouté: fuite provoqué car sequence->addElement(cha); créé une copie de cha avant de l'ajouter dans la liste
 			} while (elt_node != 0);
 		}
 		else if (sequenceType == NUMERIC) {
@@ -104,6 +104,7 @@ void *XMLParser::readFile(void *document) {
 				nu->setValue((float)atof(fn.c_str()));
 				sequence->addElement(nu);
 				elt_node = elt_node->next_sibling();
+				delete nu;//ajouté: fuite provoqué car sequence->addElement(nu); créé une copie de nu avant de l'ajouter dans la liste
 			} while (elt_node != 0);
 		}
 		else if (sequenceType == VECTOR) {
@@ -145,6 +146,7 @@ void *XMLParser::readFile(void *document) {
 				} while (vec_node != 0);
 				sequence->addElement(vec);
 				elt_node = elt_node->next_sibling();
+				delete vec; //ajouté: fuite provoqué car sequence->addElement(vec); créé une copie de vec avant de l'ajouter dans la liste
 			} while (elt_node != 0);
 
 		}

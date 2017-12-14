@@ -216,6 +216,16 @@ void* CSVParser::readFile(void* document) {
 	// Converts the XML to vector of sequences
 	inout::XMLParser* parser = new inout::XMLParser();
 	void* sequences = parser->readFile(docr);
-
+	delete docr;//ajouté
+	delete parser; //ajouté
 	return sequences;
+	//////////////////////////////A RETIRER, SERT DE TEST FUITES MEMOIRE///////////
+	/*std::vector<model::Sequence*> * sequence_a_desallouee = (std::vector<model::Sequence*>*)sequences;
+	for (unsigned int uiCount = sequence_a_desallouee->size() - 1; uiCount <= 0; uiCount--) {
+		delete sequence_a_desallouee->at(uiCount);
+	}
+	delete sequence_a_desallouee;
+	std::vector<model::Sequence*> * sequence_a_retirer = new std::vector<model::Sequence*>;
+	return sequence_a_retirer;
+	/////////////////////////////////////FIN TEST A RETIRER//////////////*/
 }

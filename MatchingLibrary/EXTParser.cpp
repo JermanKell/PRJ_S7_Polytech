@@ -218,6 +218,7 @@ void* EXTParser::readFile(void* document) {
 	// Converts the XML to vector of sequences
 	inout::XMLParser* parser = new inout::XMLParser();
 	void* sequences = parser->readFile(docr);
-
+	delete parser; // ajouté
+	delete docr; //ajouté
 	return sequences;
 }

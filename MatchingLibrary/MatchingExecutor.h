@@ -14,6 +14,8 @@ BOUTBIB Houda
 #include "Correspondence.h"
 #include "Parameters.h"
 #include "InOut.h"
+#include "Support.h"//ajouté pour trouver les classes filles correspondence
+#include <typeinfo>	//ajouté, necessaire pour typeid
 
 // Libraries to manipulate directories
 #if defined __linux__ || TARGET_OS_MAC
@@ -222,5 +224,7 @@ namespace tools {
 		* \return path where the results were stored.
 		*/
 		std::string execute();
+
+		~MatchingExecutor();//Destructeur ajouté
 	};
 }

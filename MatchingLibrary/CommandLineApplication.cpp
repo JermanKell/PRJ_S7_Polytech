@@ -16,7 +16,7 @@ void CommandLineApplication::expect() {
 	expectArgument(_dir);
 	expectArgument(_help);
 	// Expected methods
-	addMethod(_m1, new support::LevenstheinCorrespondence()); // MEMORY LEAKS!
+	addMethod(_m1, new support::LevenstheinCorrespondence());
 	addMethod(_m2, new support::LCSCorrespondence());
 	addMethod(_m3, new support::DTWCorrespondence());
 	addMethod(_m4, new support::MVMCorrespondence());
@@ -179,7 +179,6 @@ void CommandLineApplication::run() {
 		delete argument;
 	}
 
-	// The command is valid to perform sequence matching
 	if (!validHelp && validSequences && validMethod) {
 			tools::MatchingExecutor* executor = 0;
 			if (userDirectory && userParameters) {
@@ -196,7 +195,19 @@ void CommandLineApplication::run() {
 			}
 			// Sets the parser
 			if (parserName.compare("") != 0) {
-				executor->setParser(parsers[parserName]);
+				if (parserName.compare(_csv) == 0) {////////////////////////////////Conditions if else if else ajouté car fuite lorsque -parser est dans la commande
+					inout::CSVParser * parser = new inout::CSVParser();
+					executor->setParser(parser);
+				}
+				else if (parserName.compare(_ext) == 0) {
+					inout::EXTParser * parser = new inout::EXTParser();
+					executor->setParser(parser);
+				}
+				else if (parserName.compare(_xml) == 0) {
+					inout::XMLParser * parser = new inout::XMLParser();
+					executor->setParser(parser);
+				}
+				//executor->setParser(parsers[parserName]);//Retiré car l'objet inout::SequenceParser était directement envoyé sans être copié ce qui provoquait un crash lors de la libération mémoire plus tard
 			}
 
 			if (typeName.compare(_type1) == 0) {
@@ -210,22 +221,23 @@ void CommandLineApplication::run() {
 			}
 
 			executor->execute();
-			delete executor; ///////////////////////////////////////ajouté
-
+			delete executor;	//libération ajouté
 	}
-	
-						/////////////////////// A METTRE DANS DESTRUCTEUR /////////////////////////////
+}
+
+CommandLineApplication::~CommandLineApplication() {	//Destructeur ajouté=>libère les maps methods et parsers
 	map<std::string, tools::Correspondence*>::iterator it;
 	for (it = methods.begin(); it != methods.end(); ++it)
 	{
 		delete it->second;
 	}
+	methods.clear();
 
 	map<std::string, inout::SequenceParser*>::iterator it2;
 	for (it2 = parsers.begin(); it2 != parsers.end(); ++it2)
 	{
 		delete it2->second;
 	}
-
+	parsers.clear();
 }
 

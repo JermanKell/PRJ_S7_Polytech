@@ -1,0 +1,29 @@
+<Sequences />
+<Type id="2" />
+<Sequence idS="string">
+  <Element id="string">
+    <VectorElement value="1" />
+    <VectorElement value="2" />
+    <VectorElement value="3" />
+  </Element>
+  <Element id="string">
+    <VectorElement value="4" />
+    <VectorElement value="5" />
+    <VectorElement value="6" />
+  </Element>
+  <Element id="string">
+    <VectorElement value="7" />
+    <VectorElement value="8" />
+    <VectorElement value="9" />
+  </Element>
+  <Element id="string">
+    <VectorElement value="1" />
+    <VectorElement value="2" />
+    <VectorElement value="3" />
+  </Element>
+    <Element id="string">
+    <VectorElement value="4" />
+    <VectorElement value="5" />
+    <VectorElement value="6" />
+  </Element>
+</Sequence>
