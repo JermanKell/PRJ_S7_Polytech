@@ -22,6 +22,7 @@ TEST(SequenceTest, adding_elements) {
 	
 	model::Character c(cValue);
 	ASSERT_ANY_THROW(sequence.addElement(&c));
+
 }
 
 TEST(SequenceTest, inserting_elements) {

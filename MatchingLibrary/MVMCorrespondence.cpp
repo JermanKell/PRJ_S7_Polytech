@@ -8,42 +8,44 @@
 using namespace support;
 
 vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, model::Sequence *s2) {
-	if (s1->getSize() < s2->getSize())
+	/*if (s1->getSize() < s2->getSize())
 	{
 		model::Sequence * sTemp = s1;
 		s1 = s2;
 		s2 = sTemp;
-	}
+	}*/
 	// Initialisation
+	// s1 : target
+	// s2 : ref
 	vector<ResultCorrespondence> *vRc = new vector<ResultCorrespondence>();
-	ResultCorrespondence rc;
-	rc.correspondanceT1 = new vector<int>();
-	rc.correspondanceT2 = new vector<int>();
+	//ResultCorrespondence rc;
+	//rc.correspondanceT1 = new vector<int>();
+	//rc.correspondanceT2 = new vector<int>();
 	// Parameters
-	if (s1->getSize() != params->getFirstSequenceSize()) {
-		params->setFirstSequenceSize(s1->getSize());
+	if (s2->getSize() != params->getFirstSequenceSize()) {//////////////////////////////////////////////////s1 changé par s2
+		params->setFirstSequenceSize(s2->getSize());/////////////////////////////////////////////s1 changé par s2
 	}
-	if (s2->getSize() != params->getSecondSequenceSize()) {
-		params->setSecondSequenceSize(s2->getSize());
+	if (s1->getSize() != params->getSecondSequenceSize()) {/////////////////////////////////////////s2 changé par s1
+		params->setSecondSequenceSize(s1->getSize());//////////////////////////////////////////////s2 changé par s1
 	}
 	// Check entrées
 	if (s1->getSize() <= 0 || s2->getSize() <= 0) {
-		delete rc.correspondanceT1;
-		delete rc.correspondanceT2;
+		//delete rc.correspondanceT1;
+		//delete rc.correspondanceT2;
 		delete vRc;
 		exc::SequenceMatchingException::genererException(
 			"Size error 2", PARAMETRE_INVALIDE, __LINE__);
 	}
 	if (s1->getSize() < s2->getSize()) {
-		delete rc.correspondanceT1;
-		delete rc.correspondanceT2;
+		//delete rc.correspondanceT1;
+		//delete rc.correspondanceT2;
 		delete vRc;
 		exc::SequenceMatchingException::genererException(
 			"Size error", PARAMETRE_INVALIDE, __LINE__);
 	}
 	if (typeid(*s1->getElement(0)) != typeid(*s2->getElement(0))) {
-		delete rc.correspondanceT1;
-		delete rc.correspondanceT2;
+		//delete rc.correspondanceT1;
+		//delete rc.correspondanceT2;
 		delete vRc;
 		exc::SequenceMatchingException::genererException(
 			"Type error", PARAMETRE_INVALIDE, __LINE__);
@@ -54,8 +56,8 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 		model::CharacteristicVector *cv2 =
 			(model::CharacteristicVector *)s2->getElement(0);
 		if (cv1->getSize() != cv2->getSize()) {
-			delete rc.correspondanceT1;
-			delete rc.correspondanceT2;
+			//delete rc.correspondanceT1;
+			//delete rc.correspondanceT2;
 			delete vRc;
 			exc::SequenceMatchingException::genererException(
 				"Characteristic vector size error", PARAMETRE_INVALIDE, __LINE__);
@@ -74,14 +76,12 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 	float **pathCost = new float *[cs2->getSize()];
 	int **pathRow = new int *[cs2->getSize()];
 	int **pathCol = new int *[cs2->getSize()];
-	int **path = new int *[cs2->getSize()];
 
 	int itM = 0;
 	while (itM < cs2->getSize()) {
 		pathCost[itM] = new float[cs1->getSize()];
 		pathCol[itM] = new int[cs1->getSize()];
 		pathRow[itM] = new int[cs1->getSize()];
-		path[itM] = new int[cs1->getSize()];
 		itM = itM + 1;
 	}
 	// Calcul
@@ -115,15 +115,19 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 
 	i = 1;
 	j = 0;
-	while (i < cs2->getSize()) {
+	while (i < cs2->getSize())
+	{
 		int stopk = __min(i + elasticity, cs1->getSize() - 1);
 		int debk = i - 1;
 		int k = debk;
-		while (k <= stopk) {
+		while (k <= stopk) 
+		{
 			int stopj = __min(k + 1 + elasticity, cs1->getSize() - 1);
 			j = k + 1;
-			while (j <= stopj) {
-				if (pathCost[i][j] > pathCost[i - 1][k] + calcTab(tabDiff, i, j)) {
+			while (j <= stopj) 
+			{
+				if (pathCost[i][j] > pathCost[i - 1][k] + calcTab(tabDiff, i, j)) 
+				{
 					pathCost[i][j] = pathCost[i - 1][k] + calcTab(tabDiff, i, j);
 					pathRow[i][j] = i - 1;
 					pathCol[i][j] = k;
@@ -134,7 +138,8 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 		}
 		i = i + 1;
 	}
-	int k, tmp, nbJump;
+	unsigned int k;
+	int tmp, nbJump;
 	vector<int> *j_min;
 	j_min = getIndexOfMinRow(pathCost, cs2->getSize(), cs1->getSize(), false);
 	for (k = 0; k < j_min->size(); k++) {
@@ -159,10 +164,40 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 
 			j = tmp;
 		}
-		// cout << nbJump;
 		rc.distance = sqrt(result);
 		vRc->push_back(rc);
 	}
+	//////////////////////	TEST
+	/*cout << "TABDIFF=" << endl;
+	for (int i = 0; i < cs2->getSize(); i++) {
+		for (int j = 0; j < cs1->getSize(); j++) {
+			cout << tabDiff[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "PATHCOST=" << endl;
+	for (int i = 0; i < cs2->getSize(); i++) {
+		for (int j = 0; j < cs1->getSize(); j++) {
+			cout << pathCost[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "PATHROW=" << endl;
+	for (int i = 0; i < cs2->getSize(); i++) {
+		for (int j = 0; j < cs1->getSize(); j++) {
+			cout << pathRow[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << "PATHCOL=" << endl;
+	for (int i = 0; i < cs2->getSize(); i++) {
+		for (int j = 0; j < cs1->getSize(); j++) {
+			cout << pathCol[i][j] << " ";
+		}
+		cout << endl;
+	}*/
+	////////////////////// FIN TEST
+
 	// Libération tableaux
 	freeTabDifference(tabDiff, cs2->getSize(), cs1->getSize());
 	itM = 0;
@@ -172,7 +207,7 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 		delete pathRow[itM];
 		itM = itM + 1;
 	}
-	delete path;
+	delete j_min;////////////////ajouté
 	delete pathCost;
 	delete pathRow;
 	delete pathCol;

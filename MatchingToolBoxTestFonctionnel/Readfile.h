@@ -10,7 +10,7 @@ class Readfile
 {
 public:
 	Readfile();
-	Readfile(string name1 , string name2);
+	Readfile(string filename_expected, string filename_result);
 	/*
 		Cette methode permet de lire les deux fichiers et dire si elle sont égale 
 	*/

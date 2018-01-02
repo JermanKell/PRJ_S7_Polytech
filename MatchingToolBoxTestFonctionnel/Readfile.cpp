@@ -4,10 +4,10 @@ Readfile::Readfile()
 {
 }
 
-Readfile::Readfile(string name1 , string name2)
+Readfile::Readfile(string filename_expected , string filename_result)
 {
-	filename = name1;
-	filename2 = name2;
+	filename = filename_expected;
+	filename2 = filename_result;
 }
 bool Readfile::compareFile()
 {
@@ -16,9 +16,6 @@ bool Readfile::compareFile()
 	string rowfile1;
 	string rowfile2;
 
-
-
-
 	/* Ce verifie l'existance des fichiers */
 
 	ifstream file1(filename.c_str(), ios::in);
@@ -26,19 +23,17 @@ bool Readfile::compareFile()
 
 	if (file1.fail())
 	{
-		//throw string("The file 1 : " + filename + " doesn't exist or a problem of reading");
 		cerr << "The file 1 : " << filename << " doesn't exist or a problem of reading ! " << endl ;
 		return false;
 	}
 	if (file2.fail())
 	{
-		//throw string("The file 2 : " + filename + " doesn't exist or a problem of reading");
 		cerr << "The file 2 : " << filename2 << " doesn't exist or a problem of reading ! " << endl ;
 		return false;
 	}
 
 	/*
-	Recupere toutes les lignes du fichier 1
+	Pull all lines from the file 1
 	*/
 	while (!file1.eof())
 	{
@@ -47,7 +42,7 @@ bool Readfile::compareFile()
 		rowfile1 += row;
 	}
 	/*
-	Recupere toutes les lignes du fichier 2
+	Pull all lines from the file 2
 	*/
 	while (!file2.eof())
 	{

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 			"-method", "lvn", "-result" , "..\\TestingMaterial\\results", "-parser", "csv", "-type", "character"
 	};
 	c = new commandline::CommandLineApplication(12, args);*/
-	//-sequences $(SolutionDir)\TestingMaterial\target_vector.csv $(SolutionDir)\TestingMaterial\ref_vector.csv -method dtw -result $(SolutionDir)\TestingMaterial\ResultFile
+	//-sequences $(SolutionDir)\TestingMaterial\target_chien.csv $(SolutionDir)\TestingMaterial\ref_niche.csv -method dtw -parser csv -type character
 	c = new commandline::CommandLineApplication(argc, argv);
 
 	try {

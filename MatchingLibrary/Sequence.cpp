@@ -59,6 +59,7 @@ void Sequence::removeElement(unsigned int index) {
 		exc::SequenceMatchingException::genererException(
 			"Size error", PARAMETRE_INVALIDE, __LINE__);
 	}
+	delete vSlist->at(index);	//Ajouté=> erase ne libère pas
 	vSlist->erase(vSlist->begin() + index);
 }
 

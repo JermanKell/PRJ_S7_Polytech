@@ -129,7 +129,10 @@ void CommandLineApplication::run() {
 			}
 			std::string parametersFile = getEnteredValue(_param, 0);
 			inout::ParamParser paramParser;
-			parameters = ((std::vector<tools::Parameters*> *) paramParser.readFile((void*) parametersFile.c_str())) ->at(0);
+			std::vector<tools::Parameters*> * parametersList = ((std::vector<tools::Parameters*> *) paramParser.readFile((void*)parametersFile.c_str())); //ajouté
+			//parameters = ((std::vector<tools::Parameters*> *) paramParser.readFile((void*) parametersFile.c_str())) ->at(0); //retiré
+			parameters = parametersList->at(0); //ajouté
+			delete parametersList; //ajouté
 			userParameters = true;
 		}
 		// -result argument
@@ -193,23 +196,16 @@ void CommandLineApplication::run() {
 			else {
 				executor = new tools::MatchingExecutor(fileTarget, filereference, methods.at(methodName));
 			}
-			// Sets the parser
-			if (parserName.compare("") != 0) {
-				if (parserName.compare(_csv) == 0) {////////////////////////////////Conditions if else if else ajouté car fuite lorsque -parser est dans la commande
-					inout::CSVParser * parser = new inout::CSVParser();
-					executor->setParser(parser);
-				}
-				else if (parserName.compare(_ext) == 0) {
-					inout::EXTParser * parser = new inout::EXTParser();
-					executor->setParser(parser);
-				}
-				else if (parserName.compare(_xml) == 0) {
-					inout::XMLParser * parser = new inout::XMLParser();
-					executor->setParser(parser);
-				}
-				//executor->setParser(parsers[parserName]);//Retiré car l'objet inout::SequenceParser était directement envoyé sans être copié ce qui provoquait un crash lors de la libération mémoire plus tard
+
+			// Set the parser
+			if (parserName.compare("") != 0) {////////Conditions if modifié par ajout d'un else car fuite lorsque -parser est dans la commande. Le set csv si pas de parser dans matchingExecutor a été retiré
+					executor->setParser(parsers[parserName]);
+			}
+			else {
+				executor->setParser(parsers[_csv]);
 			}
 
+			// Set the format type
 			if (typeName.compare(_type1) == 0) {
 				executor->setType(inout::SEQUENCE_TYPE::CHARACTER);
 			}
@@ -222,6 +218,7 @@ void CommandLineApplication::run() {
 
 			executor->execute();
 			delete executor;	//libération ajouté
+			delete parameters;	//ajouté
 	}
 }
 

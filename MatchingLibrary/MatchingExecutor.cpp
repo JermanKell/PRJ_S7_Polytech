@@ -52,9 +52,9 @@ std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
 	std::vector<model::Sequence*>* sequences;
 
 	// Default parser : CSVParser
-	if (parser == 0) {
+	/*if (parser == 0) {
 		parser = new inout::CSVParser();	
-	}
+	}*/
 
 	// Sets the default type of parsing
 	parser->setType(type);
@@ -176,6 +176,12 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		else if (typeid(*method) == typeid(support::LCSCorrespondence)) {
 			method_name = "lcs";
 		}
+		else if (typeid(*method) == typeid(support::ESCCorrespondence)) {
+			method_name = "esc";
+		}
+		else if (typeid(*method) == typeid(support::CDPCorrespondence)) {
+			method_name = "cdp";
+		}
 
 		string type_name = "";	//Ajouté pour spécifier le type dans le nom de dossier créé
 		if (type == inout::SEQUENCE_TYPE::CHARACTER) {
@@ -184,7 +190,7 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		else if (type == inout::SEQUENCE_TYPE::NUMERIC) {
 			type_name = "num";
 		}
-		else if (type == inout::SEQUENCE_TYPE::NUMERIC) {
+		else if (type == inout::SEQUENCE_TYPE::VECTOR) {
 			type_name = "vec";
 		}
 
@@ -252,10 +258,4 @@ std::string MatchingExecutor::execute()
 	delete referenceSequences;	//Ajouté
 
 	return directory;
-}
-
-MatchingExecutor::~MatchingExecutor() {	//Destructeur ajouté
-	//delete method; => problème car le pointeur est le meme que dans CommandLineApplication!
-	//delete parameters; => problème car le pointeur est le meme que dans CommandLineApplication!
-	delete parser;
 }

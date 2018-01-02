@@ -24,6 +24,12 @@
     <ClCompile Include="Readfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FSMTestFonctionnel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MVMTestFonctionnel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Readfile.h">

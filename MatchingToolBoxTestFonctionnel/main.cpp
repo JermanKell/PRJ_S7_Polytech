@@ -1,7 +1,6 @@
 #include <iostream>
 #include "gtest\gtest.h"
 #include "vld.h" //Tests fuites mémoire, 4 blocks provoqués par google
-#include "Command.h"
 
 
 int main(int argc, char *argv[])

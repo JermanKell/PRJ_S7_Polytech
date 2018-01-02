@@ -154,8 +154,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FSMTestFonctionnel.cpp" />
     <ClCompile Include="LevenshteinTestFontionnel.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MVMTestFonctionnel.cpp" />
     <ClCompile Include="Readfile.cpp" />
   </ItemGroup>
   <ItemGroup>

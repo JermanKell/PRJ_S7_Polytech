@@ -225,6 +225,9 @@ namespace tools {
 		*/
 		std::string execute();
 
-		~MatchingExecutor();//Destructeur ajouté
+		/*! \brief destructor
+		* Do nothing.
+		*/
+		~MatchingExecutor() {};
 	};
 }

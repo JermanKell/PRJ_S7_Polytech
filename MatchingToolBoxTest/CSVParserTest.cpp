@@ -27,7 +27,10 @@ TEST(CSVParserTest, reading_numeric_csv_file) {
 	// The sequence should have 5 numbers
 	ASSERT_EQ(sequences->at(0)->getSize(), 5);
 
-	free(sequences);
+	for (unsigned int uiCount = 0; uiCount < sequences->size(); uiCount++) {	//boucle for ajouté
+		delete sequences->at(uiCount);
+	}
+	delete sequences;	//free changé par delete
 }
 
 TEST(CSVParserTest, reading_vector_csv_file) {
@@ -42,7 +45,10 @@ TEST(CSVParserTest, reading_vector_csv_file) {
 	// The sequence should have 367 numbers
 	ASSERT_EQ(sequences->at(0)->getSize(), 367);
 
-	free(sequences);
+	for (unsigned int uiCount = 0; uiCount < sequences->size(); uiCount++) {	//boucle for ajouté
+		delete sequences->at(uiCount);
+	}
+	delete sequences;	//free changé par delete
 }
 
 TEST(CSVParserTest, reading_character_csv_file) {
@@ -57,5 +63,8 @@ TEST(CSVParserTest, reading_character_csv_file) {
 	// The sequence should have 5 numbers
 	ASSERT_EQ(sequences->at(0)->getSize(), 5);
 
-	free(sequences);
+	for (unsigned int uiCount = 0; uiCount < sequences->size(); uiCount++) {	//boucle for ajouté
+		delete sequences->at(uiCount);
+	}
+	delete sequences;	//free changé par delete
 }
