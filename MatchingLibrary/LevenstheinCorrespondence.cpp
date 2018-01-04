@@ -16,6 +16,8 @@
 using namespace support;
 
 vector<ResultCorrespondence> *LevenstheinCorrespondence::match(model::Sequence *s1, model::Sequence *s2) {
+	//s1 : target
+	//s2 : ref
 	// Initialisation
 	vector<ResultCorrespondence> *vRc = new vector<ResultCorrespondence>();
 	ResultCorrespondence rc;

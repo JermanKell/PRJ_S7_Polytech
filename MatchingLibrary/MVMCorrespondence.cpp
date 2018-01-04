@@ -8,7 +8,7 @@
 using namespace support;
 
 vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, model::Sequence *s2) {
-	/*if (s1->getSize() < s2->getSize())
+	/*if (s1->getSize() < s2->getSize()) //retiré car incorrecte si fichier param utilisé
 	{
 		model::Sequence * sTemp = s1;
 		s1 = s2;
@@ -21,12 +21,15 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 	//ResultCorrespondence rc;
 	//rc.correspondanceT1 = new vector<int>();
 	//rc.correspondanceT2 = new vector<int>();
-	// Parameters
-	if (s2->getSize() != params->getFirstSequenceSize()) {//////////////////////////////////////////////////s1 changé par s2
-		params->setFirstSequenceSize(s2->getSize());/////////////////////////////////////////////s1 changé par s2
+	if (isParametrageExtern) {	//ajouté
+		params->swapSequences();
 	}
-	if (s1->getSize() != params->getSecondSequenceSize()) {/////////////////////////////////////////s2 changé par s1
-		params->setSecondSequenceSize(s1->getSize());//////////////////////////////////////////////s2 changé par s1
+	// Parameters
+	if (s2->getSize() != params->getFirstSequenceSize()) {	//s1 changé par s2
+		params->setFirstSequenceSize(s2->getSize());	//s1 changé par s2
+	}
+	if (s1->getSize() != params->getSecondSequenceSize()) {		//s2 changé par s1
+		params->setSecondSequenceSize(s1->getSize());	//s2 changé par s1
 	}
 	// Check entrées
 	if (s1->getSize() <= 0 || s2->getSize() <= 0) {

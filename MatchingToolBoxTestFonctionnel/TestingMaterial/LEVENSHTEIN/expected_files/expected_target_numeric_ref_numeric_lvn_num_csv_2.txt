@@ -1,6 +1,0 @@
-Result
-Distance=0
-Correspondance
-1293359
-=======
-1293359

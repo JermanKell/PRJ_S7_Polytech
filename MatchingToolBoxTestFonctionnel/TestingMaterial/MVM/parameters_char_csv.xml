@@ -1,0 +1,76 @@
+<!DOCTYPE Parameters>
+<Lists>
+  <Comparaison size1="9" size2="5" isVector="0" sizeVector="-1" weightDistance="1.0">
+    <LevenshteinParam addCost="1.0" delCost="1.0" transCost="1.0" />
+    <CdpParam threshold="-1.0" />
+    <MvmParam divElast="10" />
+    <FsmParam Elasticity="-1" Weight="1.0" SkipCost="-1.0" SmallSkipCost="-1.0" TypeOfResult="0" ResultFirstColumn="1" NbMinPerLine="2" DefaultSkipCost="0.1" StandardDeviation="2" />
+    <WeightNode>
+      <sequenceWeight1>
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+      </sequenceWeight1>
+      <sequenceWeight2>
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+        <sequenceElement value="1.0" />
+      </sequenceWeight2>
+      <sequenceMatrix>
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+      </sequenceMatrix>
+    </WeightNode>
+  </Comparaison>
+</Lists>

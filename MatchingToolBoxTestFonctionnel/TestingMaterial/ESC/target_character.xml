@@ -1,0 +1,14 @@
+<Sequences />
+<Type id="0" />
+<Sequence idS="string">
+  <Element id="string" value="u" />
+  <Element id="string" value="n" />
+  <Element id="string" value="e" />
+  <Element id="string" value="l" />
+  <Element id="string" value="e" />
+  <Element id="string" value="p" />
+  <Element id="string" value="h" />
+  <Element id="string" value="a" />
+  <Element id="string" value="n" />
+  <Element id="string" value="t" />
+</Sequence>

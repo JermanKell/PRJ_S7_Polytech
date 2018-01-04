@@ -17,10 +17,12 @@
 		"csv",
 		"-type",
 		"character",
+		"-param",
+		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\parameters_char_csv.xml",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\resultat_ref_character_target_character_fsm_char_csv" };
 
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
 
 	Readfile r(expected_file, result_file);
@@ -42,10 +44,12 @@ TEST(FSM_SystemTest, FSM_numeric_csv) {
 		"csv",
 		"-type",
 		"numeric",
+		"-param",
+		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\parameters_num_csv.xml",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\resultat_ref_numeric_target_numeric_fsm_num_csv" };
 
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
 	ASSERT_NO_THROW(c.run());
 
@@ -68,10 +72,12 @@ TEST(FSM_SystemTest, FSM_vector_csv) {
 		"csv",
 		"-type",
 		"vector",
+		"-param",
+		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\parameters_vec_csv.xml",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\FSM\\resultat_ref_vector_target_vector_fsm_vec_csv" };
 
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
 	ASSERT_NO_THROW(c.run());
 

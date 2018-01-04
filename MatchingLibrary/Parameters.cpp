@@ -250,6 +250,32 @@ float Parameters::getCharacteristicVectorWeight(unsigned int index) {
 	return vPweightVecCarac->at(index);
 }
 
+void Parameters::swapSequences() {
+	vector<float> *tempvPweight = vPweightS1;
+	vPweightS1 = vPweightS2;
+	vPweightS2 = tempvPweight;
+	std::reverse(vPweightVecCarac->begin(), vPweightVecCarac->end());
+	unsigned int max_sizeS1 = vPweightS1->size();
+	unsigned int max_sizeS2 = vPweightS2->size();
+	vector<vector<float> *> * tempvPweightMatrice = new vector<vector<float>*>(max_sizeS1);
+	unsigned int iBoucle = 0;
+	while (iBoucle < max_sizeS1) {
+		vector<float> * col = new vector<float>(max_sizeS2);
+		tempvPweightMatrice->at(iBoucle) = col;
+		iBoucle = iBoucle + 1;
+	}
+	for (iBoucle = 0; iBoucle < max_sizeS2; iBoucle++) {
+		for (unsigned int iBoucle2 = 0; iBoucle2 < max_sizeS1; iBoucle2++) {
+			tempvPweightMatrice->at(iBoucle2)->at(iBoucle) = vPweightMatrice->at(iBoucle)->at(iBoucle2);
+		}
+		delete vPweightMatrice->at(iBoucle);
+	}
+	delete vPweightMatrice;
+	vPweightMatrice = tempvPweightMatrice;
+	putValue(SIZE_FIRST_SEQUENCE, (float)max_sizeS1);
+	putValue(SIZE_SECOND_SEQUENCE, (float)max_sizeS2);
+}
+
 void Parameters::fillParameters() {
 	putValue(WEIGHT_DISTANCE, 1);
 	putValue(LEVENSHTEIN_ADD_COST, 1.0f);

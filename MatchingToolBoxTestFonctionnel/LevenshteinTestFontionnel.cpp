@@ -22,28 +22,18 @@
 					"-result",
 					"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_character_target_character_lvn_char_csv" };
 
-	//try {
-		//commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
-		//c.run();
-	//}
-	//catch (exc::SequenceMatchingException & e) {
-		//std::cout << e.what() << std::endl;
-		//std::cout << "Use --help" << std::endl;
-	//}
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
 	
 	Readfile r(expected_file, result_file);
 
 	ASSERT_EQ(r.compareFile(), true);
-}*/
+}
 
 TEST(Levenshtein_SystemTest, levenshtein_numeric_csv) {
 
-	string expected_file1 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_numeric_ref_numeric_lvn_num_csv_1.txt";
-	string expected_file2 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_numeric_ref_numeric_lvn_num_csv_2.txt";
-	string result_file1 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_numeric_target_numeric_lvn_num_csv\\1.txt";
-	string result_file2 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_numeric_target_numeric_lvn_num_csv\\2.txt";
+	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_numeric_ref_numeric_lvn_num_csv.txt";
+	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_numeric_target_numeric_lvn_num_csv\\1.txt";
 	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\target_numeric.csv",
@@ -54,29 +44,21 @@ TEST(Levenshtein_SystemTest, levenshtein_numeric_csv) {
 		"csv",
 		"-type",
 		"numeric",
+		"-param",
+		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\parameters_num_csv.xml",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_numeric_target_numeric_lvn_num_csv" };
 
-	try {
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
-	c.run();
-	}
-	catch (exc::SequenceMatchingException & e) {
-	std::cout << e.what() << std::endl;
-	std::cout << "Use --help" << std::endl;
-	}
-	//commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
-	//ASSERT_NO_THROW(c.run());
+	ASSERT_NO_THROW(c.run());
 
-	Readfile r1(expected_file1, result_file1);
-	Readfile r2(expected_file2, result_file2);
+	Readfile r(expected_file, result_file);
 
-	ASSERT_EQ(r1.compareFile(), true);
-	ASSERT_EQ(r2.compareFile(), true);
+	ASSERT_EQ(r.compareFile(), true);
 }
 
-/*TEST(Levenshtein_SystemTest, levenshtein_vector_csv) {
+TEST(Levenshtein_SystemTest, levenshtein_vector_csv) {
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_vector_ref_vector_lvn_vec_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_vector_target_vector_lvn_vec_csv\\1.txt";
@@ -90,10 +72,12 @@ TEST(Levenshtein_SystemTest, levenshtein_numeric_csv) {
 		"csv",
 		"-type",
 		"vector",
+		"-param",
+		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\parameters_vec_csv.xml",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_vector_target_vector_lvn_vec_csv" };
 
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
 	ASSERT_NO_THROW(c.run());
 

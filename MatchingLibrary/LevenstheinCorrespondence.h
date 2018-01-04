@@ -45,7 +45,7 @@ namespace support {
 		float fLCdelcost;   /** cost to delete an element*/
 		float fLCaddcost;   /** cost to add an element*/
 		float fLCtranscost; /** cost to switch an element*/
-		int isExternParametrage;
+		//int isExternParametrage; => supprimé car existe déja dans la classe mère
 		float calcTab(float **tabDifference, int it1, int it2) {
 			return Correspondence::calcTab(tabDifference, it1, it2);
 		};

@@ -16,6 +16,7 @@ Houda BOUTBIB
 
 #include <vector>
 #include <map>
+#include <algorithm>
 
 namespace tools {
 	class Parameters {
@@ -247,6 +248,12 @@ namespace tools {
 		*/
 		float getMatrixWeight(unsigned int i1, unsigned int i2);
 
+		/*!
+		* \brief swapSequences
+		* \swap the first sequence with the second sequence
+		* \the whole weights are also swapped
+		*/
+		void swapSequences();
 
 	protected:
 

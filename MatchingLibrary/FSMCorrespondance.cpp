@@ -18,6 +18,9 @@ vector<ResultCorrespondence> *FSMCorrespondence::match(model::Sequence *s1, mode
 		exc::SequenceMatchingException::genererException(
 			"Size error", PARAMETRE_INVALIDE, __LINE__);
 	}
+	if (isParametrageExtern) {	//ajouté
+		params->swapSequences();
+	}
 	// Parameters
 	if (s1->getSize() != params->getFirstSequenceSize()) {
 		params->setSecondSequenceSize(s1->getSize());

@@ -37,7 +37,7 @@ namespace support {
 
 		string getSpace(unsigned int size);
 	protected:
-		int isExternParametrage;
+		//int isExternParametrage; supprimé car existe déja dans la classe mère
 		float calcTab(float **tabDifference, int it1, int it2) {
 			return Correspondence::calcTab(tabDifference, it1, it2);
 		};

@@ -30,6 +30,9 @@
     <ClCompile Include="MVMTestFonctionnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ESCTestFonctionnel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Readfile.h">

@@ -198,7 +198,7 @@ void *ParamParser::readFile(void *document) {
 				float vals1 = (float)atof(w1_attr->value());
 				parameters->setFirstSequenceWeight(it1, vals1);
 				it1 = it1 + 1;
-				v1_node->next_sibling();
+				v1_node = v1_node->next_sibling();	//v1_node->next_sibling() corrigé
 			}
 			// Creer vecteur 2
 			rapidxml::xml_node<> *sw2_node;

@@ -56,10 +56,11 @@ std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
 		parser = new inout::CSVParser();	
 	}*/
 
-	// Sets the default type of parsing
-	parser->setType(type);
-	if (parameters != 0) {
-		if (parameters->getCharacteristicVectorSize() <= 0) {
+	// Sets the default type of parsing => déplacé au début de la méthode execute
+	//parser->setType(type);
+
+	/*if (parameters != 0) {					//=> Retiré car il semble y avoir une erreur. CharacterisiticVectorSize n'a pas de rapport avec le type
+		if (parameters->getCharacteristicVectorSize() <= 0) {	//Ce lot de condition se déclanche que si on utilse un fichier param et changeait le type alors qu'il est déja défini
 			parser->setType(inout::SEQUENCE_TYPE::CHARACTER);
 		}
 		else if (parameters->getCharacteristicVectorSize() == 1) {
@@ -68,7 +69,7 @@ std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
 		else {
 			parser->setType(inout::SEQUENCE_TYPE::VECTOR);
 		}
-	}
+	}*/
 
 	// Parses the file
 	/////////////////////////////		CONDITION IF ELSE AJOUTE. CORRIGE LE BUG EMPÊCHANT D'UTILISER LE TYPE XML 
@@ -125,7 +126,7 @@ std::vector<std::string> MatchingExecutor::match(std::vector<model::Sequence*>* 
 				// Format the results
 				resultInFormat = method->format(target->at(iBoucle2), ref->at(iBoucle), result);
 
-				for (int uiBoucle = 0; uiBoucle < result->size(); uiBoucle++) {//Ajouté
+				for (unsigned int uiBoucle = 0; uiBoucle < result->size(); uiBoucle++) {//Ajouté
 					delete result->at(uiBoucle).correspondanceT1;
 					delete result->at(uiBoucle).correspondanceT2;
 				}
@@ -236,6 +237,9 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 std::string MatchingExecutor::execute()
 {
 	std::vector<model::Sequence*>* referenceSequences, *targetSequences = 0;
+
+	//Set the parser (default = vector) //déplacé depuis readFile
+	parser->setType(type);
 
 	// Reads the second file
 	targetSequences = readFile(targetFile);

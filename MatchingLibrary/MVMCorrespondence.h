@@ -30,8 +30,8 @@ namespace support {
 
 	class MVMCorrespondence : public Correspondence
 	{
-	private:
-		int isExternParametrage;
+	//private: //existe déja dans la classe mère =>supprimé
+		//int isExternParametrage;
 	public:
 		/*!
 		* \brief Constructor

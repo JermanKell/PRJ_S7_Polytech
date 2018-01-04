@@ -21,12 +21,17 @@ vector<ResultCorrespondence> *ESCCorrespondence::match(model::Sequence *s1, mode
 		delete vRc;
 		exc::SequenceMatchingException::genererException("Size error", PARAMETRE_INVALIDE, __LINE__);
 	}
-	// Parameters
-	if (s1->getSize() != params->getFirstSequenceSize()) {
-		params->setFirstSequenceSize(s1->getSize());
+
+
+	if (isParametrageExtern) {	//ajouté
+		params->swapSequences();
 	}
-	if (s2->getSize() != params->getSecondSequenceSize()) {
-		params->setSecondSequenceSize(s2->getSize());
+	// Parameters
+	if (s2->getSize() != params->getFirstSequenceSize()) {	//s1 changé par s2
+		params->setFirstSequenceSize(s2->getSize());
+	}
+	if (s1->getSize() != params->getSecondSequenceSize()) {	//s2 changé par s1
+		params->setSecondSequenceSize(s1->getSize());
 	}
 	// Check entrées
 	if (s1->getSize() <= 0 || s2->getSize() <= 0)
@@ -251,12 +256,14 @@ vector<ResultCorrespondence> *ESCCorrespondence::match(model::Sequence *s1, mode
 		delete pathCost[i];
 		delete pathCol[i];
 		delete pathRow[i];
+		delete skipableParent[i]; //ajouté
 		i = i + 1;
 	}
 
 	delete pathCol;
 	delete pathCost;
 	delete pathRow;
+	delete skipableParent; //ajouté
 	delete cs1;
 	delete cs2;
 	delete j_min;

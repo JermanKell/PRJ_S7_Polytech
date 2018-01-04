@@ -1,11 +1,10 @@
 <!DOCTYPE Parameters>
 <Lists>
-  <Comparaison size1="2" size2="2" isVector="1" sizeVector="2" weightDistance="2.0">
-    <LevenshteinParam addCost="1" delCost="2" transCost="3" />
-    <CdpParam threshold="2" />
-    <MvmParam divElast="1" />
-    <FsmParam Elasticity="1" Weight="2.0" SkipCost="1.0" SmallSkipCost="1.0" TypeOfResult="1" ResultFirstColumn="2"
-      NbMinPerLine="2" DefaultSkipCost="1.0" StandardDeviation="1" />
+  <Comparaison size1="2" size2="2" isVector="1" sizeVector="2" weightDistance="1.0">
+    <LevenshteinParam addCost="1.0" delCost="1.0" transCost="1.0" />
+    <CdpParam threshold="-1.0" />
+    <MvmParam divElast="10" />
+    <FsmParam Elasticity="-1" Weight="1.0" SkipCost="-1.0" SmallSkipCost="-1.0" TypeOfResult="0" ResultFirstColumn="1" NbMinPerLine="2" DefaultSkipCost="0.1" StandardDeviation="2" />
     <WeightNode>
       <sequenceWeight1>
         <sequenceElement value="1.0" />
@@ -16,14 +15,14 @@
         <sequenceElement value="1.0" />
       </sequenceWeight2>
       <vectorWeights>
-        <sequenceVectorElement value="0.5" />
-        <sequenceVectorElement value="0.5" />
+        <sequenceVectorElement value="1.0" />
+        <sequenceVectorElement value="1.0" />
       </vectorWeights>
       <sequenceMatrix>
-        <sequenceMatrixElement value="0.8" />
-        <sequenceMatrixElement value="0.8" />
-        <sequenceMatrixElement value="0.8" />
-        <sequenceMatrixElement value="0.8" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
+        <sequenceMatrixElement value="1.0" />
       </sequenceMatrix>
     </WeightNode>
   </Comparaison>
