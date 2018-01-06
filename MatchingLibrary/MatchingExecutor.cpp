@@ -51,7 +51,7 @@ std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
 {
 	std::vector<model::Sequence*>* sequences;
 
-	// Default parser : CSVParser
+	// Default parser : CSVParser //déplacé dans CommandLineApplication
 	/*if (parser == 0) {
 		parser = new inout::CSVParser();	
 	}*/
@@ -209,8 +209,7 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		#if defined _WIN32 || defined _WIN64
 			directory += (string)"\\resultat" + "_" + fileRname + "_" + fileTname + "_" + method_name + "_" + type_name + "_" + parser_name + "\\";
 		#elif defined __linux__
-			directory +=
-				"/resultat" + fileRname + "_" + fileTname + "/";
+			directory += (string)"/resultat" + "_" + fileRname + "_" + fileTname + "_" + method_name + "_" + type_name + "_" + parser_name + "/";
 		#endif
 	}
 

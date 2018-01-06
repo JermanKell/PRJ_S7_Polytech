@@ -36,6 +36,9 @@
     <ClCompile Include="CDPTestFonctionnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LCSTestFonctionnel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Readfile.h">

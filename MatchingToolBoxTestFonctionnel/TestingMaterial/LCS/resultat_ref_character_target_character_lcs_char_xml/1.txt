@@ -1,0 +1,11 @@
+Result 
+Distance = 5
+Correspondance 
+
+l h u m a n i t e 
+- h u m a n - - - 
+h u m a - n 
+h u m a i n 
+Longest common sequence : {h u m a n }
+
+

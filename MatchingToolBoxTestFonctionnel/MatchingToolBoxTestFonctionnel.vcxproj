@@ -157,6 +157,7 @@
     <ClCompile Include="CDPTestFonctionnel.cpp" />
     <ClCompile Include="ESCTestFonctionnel.cpp" />
     <ClCompile Include="FSMTestFonctionnel.cpp" />
+    <ClCompile Include="LCSTestFonctionnel.cpp" />
     <ClCompile Include="LevenshteinTestFontionnel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MVMTestFonctionnel.cpp" />
