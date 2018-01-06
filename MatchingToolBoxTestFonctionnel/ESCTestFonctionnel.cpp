@@ -3,7 +3,7 @@
 #include "Command.h"
 #include "gtest\gtest.h"
 
-/*TEST(ESC_SystemTest, ESC_character_csv) {
+TEST(ESC_SystemTest, ESC_character_csv) {
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\ESC\\expected_files\\expected_target_character_ref_character_esc_char_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\ESC\\resultat_ref_character_target_character_esc_char_csv\\1.txt";
@@ -28,7 +28,7 @@
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(ESC_SystemTest, ESC_numeric_csv) {
+/*TEST(ESC_SystemTest, ESC_numeric_csv) {
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\ESC\\expected_files\\expected_target_numeric_ref_numeric_esc_num_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\ESC\\resultat_ref_numeric_target_numeric_esc_num_csv\\1.txt";

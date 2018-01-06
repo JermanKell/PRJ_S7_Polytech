@@ -21,7 +21,7 @@ vector<ResultCorrespondence> *LevenstheinCorrespondence::match(model::Sequence *
 	// Initialisation
 	vector<ResultCorrespondence> *vRc = new vector<ResultCorrespondence>();
 	ResultCorrespondence rc;
-	int itCorr = __max(s1->getSize(), s2->getSize());
+	int itCorr = std::max(s1->getSize(), s2->getSize());
 	rc.correspondanceT1 = new vector<int>();
 	rc.correspondanceT2 = new vector<int>();
 	itCorr = itCorr - 1;
@@ -113,7 +113,7 @@ vector<ResultCorrespondence> *LevenstheinCorrespondence::match(model::Sequence *
 			if (dist != 0) {
 				vdiag = vdiag + params->getValue(tools::Parameters::LEVENSHTEIN_TRANS_COST);
 			}
-			float min_val = __min(__min(vh, vg), vdiag);
+			float min_val = std::min(std::min(vh, vg), vdiag);
 			vecValue[it][it2] = min_val;
 			if (min_val == vdiag) {
 				vecCorrespondance[it][it2] += DIAGONALE;
@@ -237,49 +237,49 @@ std::string LevenstheinCorrespondence::format(model::Sequence *sTarget, model::S
 	while (it < result->correspondanceT1->size()) {
 		// CAS TRANSEQ
 		if (result->correspondanceT1->at(it) >= TRANSEQ) {
-			ss << EGAL << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ss << EGAL << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			ss1 << sTarget->getElement(result->correspondanceT1->at(it) - TRANSEQ)
 				->toString()
 				<< getSpace(
-					__max(tailleMaxSeq2, tailleMaxSeq1) -
+					std::max(tailleMaxSeq2, tailleMaxSeq1) -
 					sTarget->getElement(result->correspondanceT1->at(it) - TRANSEQ)
 					->toString()
 					.size());
 			ss2 << sRef->getElement(result->correspondanceT2->at(it) - TRANSEQ)
 				->toString()
 				<< getSpace(
-					__max(tailleMaxSeq2, tailleMaxSeq1) -
+					std::max(tailleMaxSeq2, tailleMaxSeq1) -
 					sRef->getElement(result->correspondanceT2->at(it) - TRANSEQ)
 					->toString()
 					.size());
 		}
 		else if (result->correspondanceT1->at(it) >= TRANS) {
-			ss << SUB << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ss << SUB << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			ss1 << sTarget->getElement(result->correspondanceT1->at(it) - TRANS)->toString()
-				<< getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) -
+				<< getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) -
 					sTarget->getElement(result->correspondanceT1->at(it) - TRANS)->toString().size());
 			ss2 << sRef->getElement(result->correspondanceT2->at(it) - TRANS)->toString()
-				<< getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) -
+				<< getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) -
 					sRef->getElement(result->correspondanceT2->at(it) - TRANS)->toString().size());
 		}
 		else if (result->correspondanceT1->at(it) >= DEL ||
 			result->correspondanceT2->at(it) >= DEL) {
-			ss << SUPPRESS << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ss << SUPPRESS << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			if (result->correspondanceT1->at(it) >= DEL) {
 				ss1 << sTarget->getElement(result->correspondanceT1->at(it) - DEL)
 					->toString()
 					<< getSpace(
-						__max(tailleMaxSeq2, tailleMaxSeq1) -
+						std::max(tailleMaxSeq2, tailleMaxSeq1) -
 						sTarget->getElement(result->correspondanceT1->at(it) - DEL)
 						->toString()
 						.size());
-				ss2 << NO << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+				ss2 << NO << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			}
 			else {
-				ss1 << NO << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+				ss1 << NO << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 				ss2 << sRef->getElement(result->correspondanceT2->at(it) - DEL)
 					->toString()
-					<< getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) -
+					<< getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) -
 						sRef->getElement(result->correspondanceT2->at(it) - DEL)
 						->toString()
 						.size());
@@ -287,22 +287,22 @@ std::string LevenstheinCorrespondence::format(model::Sequence *sTarget, model::S
 		}
 		else if (result->correspondanceT1->at(it) >= ADD ||
 			result->correspondanceT2->at(it) >= ADD) {
-			ss << ADDING << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ss << ADDING << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			if (result->correspondanceT1->at(it) >= ADD) {
 				ss1 << sTarget->getElement(result->correspondanceT1->at(it) - ADD)
 					->toString()
 					<< getSpace(
-						__max(tailleMaxSeq2, tailleMaxSeq1) -
+						std::max(tailleMaxSeq2, tailleMaxSeq1) -
 						sTarget->getElement(result->correspondanceT1->at(it) - ADD)
 						->toString()
 						.size());
-				ss2 << NO << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+				ss2 << NO << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 			}
 			else {
-				ss1 << NO << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+				ss1 << NO << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 				ss2 << sRef->getElement(result->correspondanceT2->at(it) - ADD)
 					->toString()
-					<< getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) -
+					<< getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) -
 						sRef->getElement(result->correspondanceT2->at(it) - ADD)
 						->toString()
 						.size());

@@ -12,7 +12,8 @@ Mohammed EL MOUTARAJI
 #ifndef EXTPARSER_H
 #define EXTPARSER_H
 
-#include "sequenceparser.h"
+#include "SequenceParser.h"
+
 #include <string>
 
 namespace inout {

@@ -11,11 +11,8 @@
 #define LEVENSTHEINCORRESPONDENCE_H
 
 #include "Correspondence.h"
-#include "SequenceMatchingException.h"
 
-#include <typeinfo>
 #include <math.h>
-#include <cfloat>
 #include <cstdlib>
 
 #define NOCHAR 10000

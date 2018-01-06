@@ -14,11 +14,8 @@ Bastien Meunier
 #define DTWCORRESPONDANCE_H
 
 #include "Correspondence.h"
-#include "SequenceMatchingException.h"
 
-#include <typeinfo>
 #include <math.h>
-#include <cfloat>
 #include <cstring>
 #include <cstdlib>
 

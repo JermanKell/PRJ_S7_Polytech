@@ -2,7 +2,7 @@
 \author Abdourahman Aden Hassan
 \date 30/12/2013
 */
-#include "dtwcorrespondence.h"
+#include "DTWCorrespondence.h"
 
 using namespace support;
 
@@ -90,8 +90,8 @@ vector<ResultCorrespondence> *DTWCorrespondence::match(model::Sequence *s1,
 		while (it2 < cs2->getSize() + 1) {
 			vecValue[it][it2] =
 				calcTab(initDistance, it - 1, it2 - 1) +
-				__min(vecValue[it - 1][it2 - 1],
-					__min(vecValue[it][it2 - 1], vecValue[it - 1][it2]));
+				std::min(vecValue[it - 1][it2 - 1],
+					std::min(vecValue[it][it2 - 1], vecValue[it - 1][it2]));
 			it2 = it2 + 1;
 		}
 		it2 = 1;
@@ -117,14 +117,14 @@ vector<ResultCorrespondence> *DTWCorrespondence::match(model::Sequence *s1,
 		}
 		else {
 			if (vecValue[it - 1][it2 - 1] ==
-				__min(vecValue[it - 1][it2 - 1],
-					__min(vecValue[it][it2 - 1], vecValue[it - 1][it2]))) {
+				std::min(vecValue[it - 1][it2 - 1],
+					std::min(vecValue[it][it2 - 1], vecValue[it - 1][it2]))) {
 				it = it - 1;
 				it2 = it2 - 1;
 			}
 			else if (vecValue[it][it2 - 1] ==
-				__min(vecValue[it - 1][it2 - 1],
-					__min(vecValue[it][it2 - 1], vecValue[it - 1][it2]))) {
+				std::min(vecValue[it - 1][it2 - 1],
+					std::min(vecValue[it][it2 - 1], vecValue[it - 1][it2]))) {
 				it2 = it2 - 1;
 			}
 			else {

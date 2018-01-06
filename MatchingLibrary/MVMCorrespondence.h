@@ -11,12 +11,7 @@
 #define MVMCORRESPONDANCE_H
 
 #include "Correspondence.h"
-#include "SequenceMatchingException.h"
 
-#include <typeinfo>
-#include <cmath>
-#include <algorithm>
-#include <cfloat>
 #include <cstdlib>
 
 #define IS_CHAR 0

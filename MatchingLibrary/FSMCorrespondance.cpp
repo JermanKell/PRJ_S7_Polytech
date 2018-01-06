@@ -3,7 +3,7 @@
 \date 01/01/2014
 */
 
-#include "fsmcorrespondence.h"
+#include "FSMCorrespondence.h"
 
 using namespace support;
 

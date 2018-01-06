@@ -10,7 +10,7 @@
 #ifndef XMLPARSER_H
 #define XMLPARSER_H
 
-#include "sequenceparser.h"
+#include "SequenceParser.h"
 #include "Model.h"
 
 namespace inout {

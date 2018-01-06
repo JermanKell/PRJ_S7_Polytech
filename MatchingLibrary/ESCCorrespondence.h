@@ -10,13 +10,8 @@
 #ifndef ESCCORRESPONDANCE_H
 #define ESCCORRESPONDANCE_H
 
-#include "correspondence.h"
-#include "SequenceMatchingException.h"
+#include "Correspondence.h"
 
-#include <typeinfo>
-#include <cmath>
-#include <algorithm>
-#include <cfloat>
 #include <climits>
 #include <cstdlib>
 

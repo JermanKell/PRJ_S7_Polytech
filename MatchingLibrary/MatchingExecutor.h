@@ -8,13 +8,13 @@ BOUTBIB Houda
 \brief This class is used to match between the sequences of 2 files using a provided algorithm.
 */
 
-#include <string>
-#include <omp.h>
-
 #include "Correspondence.h"
 #include "Parameters.h"
 #include "InOut.h"
 #include "Support.h"//ajouté pour trouver les classes filles correspondence
+
+#include <string>
+#include <omp.h>
 #include <typeinfo>	//ajouté, necessaire pour typeid
 
 // Libraries to manipulate directories

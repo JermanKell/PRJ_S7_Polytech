@@ -11,7 +11,7 @@ MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondenc
 	parameters = 0;
 	parser = 0;
 	directory = "";
-	type = inout::SEQUENCE_TYPE::VECTOR;
+	type = inout::VECTOR;
 }
 
 MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondence* m, Parameters *p)
@@ -22,7 +22,7 @@ MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondenc
 	parameters = p;
 	parser = 0;
 	directory = "";
-	type = inout::SEQUENCE_TYPE::VECTOR;
+	type = inout::VECTOR;
 }
 
 MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondence* m, std::string dir)
@@ -33,7 +33,7 @@ MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondenc
 	parameters = 0;
 	parser = 0;
 	directory = dir;
-	type = inout::SEQUENCE_TYPE::VECTOR;
+	type = inout::VECTOR;
 }
 
 MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondence* m, Parameters *p, std::string dir)
@@ -44,7 +44,7 @@ MatchingExecutor::MatchingExecutor(std::string tf, std::string rf, Correspondenc
 	parameters = p;
 	parser = 0;
 	directory = dir;
-	type = inout::SEQUENCE_TYPE::VECTOR;
+	type = inout::VECTOR;
 }
 
 std::vector<model::Sequence*>* MatchingExecutor::readFile(std::string file)
@@ -185,13 +185,13 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		}
 
 		string type_name = "";	//Ajouté pour spécifier le type dans le nom de dossier créé
-		if (type == inout::SEQUENCE_TYPE::CHARACTER) {
+		if (type == inout::CHARACTER) {
 			type_name = "char";
 		}
-		else if (type == inout::SEQUENCE_TYPE::NUMERIC) {
+		else if (type == inout::NUMERIC) {
 			type_name = "num";
 		}
-		else if (type == inout::SEQUENCE_TYPE::VECTOR) {
+		else if (type == inout::VECTOR) {
 			type_name = "vec";
 		}
 

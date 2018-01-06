@@ -7,6 +7,8 @@ BOUTBIB Houda
 \brief Commandline facilitates reading a command.
 */
 
+#include <iostream>
+#include <algorithm>
 #include <vector>
 #include <map>
 
@@ -22,13 +24,13 @@ namespace commandline {
 		std::vector<std::string> expectedArguments;
 
 		/*!< The expected values of a certain argument */
-		std::map<std::string, std::vector<std::string>> expectedValues;
+		std::map<std::string, std::vector<std::string> > expectedValues;
 
 		/*!< The arguments that actually exists in the command */
 		std::vector<std::string> enteredArguments;
 
 		/*!< The entered values of an argumant */
-		std::map<std::string, std::vector<std::string>> enteredValues;
+		std::map<std::string, std::vector<std::string> > enteredValues;
 
 	public : 
 

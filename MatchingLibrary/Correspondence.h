@@ -18,6 +18,9 @@
 #include <vector>
 #include <typeinfo>
 #include <cfloat>
+#include <climits>
+#include <cmath>
+#include <algorithm>
 
 #define IS_CHAR 0
 #define IS_NUM 1

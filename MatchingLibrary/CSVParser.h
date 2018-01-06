@@ -10,7 +10,8 @@
 #ifndef CSVPARSER_H
 #define CSVPARSER_H
 
-#include "sequenceparser.h"
+#include "SequenceParser.h"
+
 #include <string>
 
 namespace inout {

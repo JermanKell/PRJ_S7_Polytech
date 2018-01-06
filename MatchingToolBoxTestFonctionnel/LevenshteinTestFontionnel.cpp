@@ -3,7 +3,7 @@
 #include "Command.h"
 #include "gtest\gtest.h"
 
-/*TEST(Levenshtein_SystemTest, levenshtein_character_csv) {
+TEST(Levenshtein_SystemTest, levenshtein_character_csv) {
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_character_ref_character_lvn_char_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_character_target_character_lvn_char_csv\\1.txt";
@@ -30,7 +30,7 @@
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(Levenshtein_SystemTest, levenshtein_numeric_csv) {
+/*TEST(Levenshtein_SystemTest, levenshtein_numeric_csv) {
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_numeric_ref_numeric_lvn_num_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_numeric_target_numeric_lvn_num_csv\\1.txt";

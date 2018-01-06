@@ -8,12 +8,12 @@
 
 using namespace support;
 
-float CDPCorrespondence::min3(float f1, float f2, float f3) {
+/*float CDPCorrespondence::min3(float f1, float f2, float f3) { //supprimé et remplacé par std::min
 	float __min = f1;
 	if (f2 < __min) __min = f2;
 	if (f3 < __min) __min = f3;
 	return __min;
-}
+}*/
 
 vector<ResultCorrespondence> *CDPCorrespondence::match(model::Sequence *s1,
 	model::Sequence *s2) {
@@ -95,26 +95,26 @@ vector<ResultCorrespondence> *CDPCorrespondence::match(model::Sequence *s1,
 			else if (j == 1) {
 				if (k == 2)
 					pathCost[k][j] =
-					min3(FLT_MAX, pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j),
+					std::min(std::min(FLT_MAX, pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j)),
 						pathCost[k][j - 1] + 3 * calcTab(tabDiff, i, j));
 				else
 					pathCost[k][j] =
-					min3(pathCost[k - 2][j - 1] + 2 * calcTab(tabDiff, i - 1, j) +
+					std::min(std::min(pathCost[k - 2][j - 1] + 2 * calcTab(tabDiff, i - 1, j) +
 						calcTab(tabDiff, i, j),
-						pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j),
+						pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j)),
 						pathCost[k][j - 1] + 3 * calcTab(tabDiff, i, j));
 			}
 			else {
 				if (k == 2)
 					pathCost[k][j] =
-					min3(FLT_MAX, pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j),
+					std::min(std::min(FLT_MAX, pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j)),
 						pathCost[k - 1][j - 2] + 3 * calcTab(tabDiff, i, j - 1) +
 						3 * calcTab(tabDiff, i, j));
 				else
 					pathCost[k][j] =
-					min3(pathCost[k - 2][j - 1] + 2 * calcTab(tabDiff, i - 1, j) +
+					std::min(std::min(pathCost[k - 2][j - 1] + 2 * calcTab(tabDiff, i - 1, j) +
 						calcTab(tabDiff, i, j),
-						pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j),
+						pathCost[k - 1][j - 1] + 3 * calcTab(tabDiff, i, j)),
 						pathCost[k - 1][j - 2] + 3 * calcTab(tabDiff, i, j - 1) +
 						3 * calcTab(tabDiff, i, j));
 			}

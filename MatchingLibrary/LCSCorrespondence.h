@@ -11,9 +11,7 @@
 #define LCSCORRESPONDANCE_H
 
 #include "Correspondence.h"
-#include "SequenceMatchingException.h"
 
-#include <typeinfo>
 #include <cstring>
 #include <cstdlib>
 

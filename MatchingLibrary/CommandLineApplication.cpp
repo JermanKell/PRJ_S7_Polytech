@@ -207,13 +207,13 @@ void CommandLineApplication::run() {
 
 			// Set the format type
 			if (typeName.compare(_type1) == 0) {
-				executor->setType(inout::SEQUENCE_TYPE::CHARACTER);
+				executor->setType(inout::CHARACTER);
 			}
 			else if (typeName.compare(_type2) == 0) {
-				executor->setType(inout::SEQUENCE_TYPE::NUMERIC);
+				executor->setType(inout::NUMERIC);
 			}
 			else if (typeName.compare(_type3) == 0) {
-				executor->setType(inout::SEQUENCE_TYPE::VECTOR);
+				executor->setType(inout::VECTOR);
 			}
 
 			executor->execute();

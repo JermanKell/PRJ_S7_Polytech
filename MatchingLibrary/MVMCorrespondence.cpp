@@ -120,12 +120,12 @@ vector<ResultCorrespondence> *MVMCorrespondence::match(model::Sequence *s1, mode
 	j = 0;
 	while (i < cs2->getSize())
 	{
-		int stopk = __min(i + elasticity, cs1->getSize() - 1);
+		int stopk = std::min(i + elasticity, cs1->getSize() - 1);
 		int debk = i - 1;
 		int k = debk;
 		while (k <= stopk) 
 		{
-			int stopj = __min(k + 1 + elasticity, cs1->getSize() - 1);
+			int stopj = std::min(k + 1 + elasticity, cs1->getSize() - 1);
 			j = k + 1;
 			while (j <= stopj) 
 			{

@@ -12,8 +12,9 @@
 #define CHARACTER_H
 
 #include "Element.h"
-#include <typeinfo>
 #include "SequenceMatchingException.h"
+
+#include <typeinfo>
 
 namespace model {
 	class Character : public Element

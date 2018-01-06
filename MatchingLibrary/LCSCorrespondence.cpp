@@ -203,29 +203,29 @@ std::string support::LCSCorrespondence::format(model::Sequence * sTarget, model:
 	unsigned int tailleMaxSeq2 = tailleMaxElement(sRef) + 1;
 	while (it<result->correspondanceT1->size())
 	{
-		ss1 << sTarget->getElement(it)->toString() << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - sTarget->getElement(it)->toString().size());
+		ss1 << sTarget->getElement(it)->toString() << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - sTarget->getElement(it)->toString().size());
 		if (result->correspondanceT1->at(it) == 1)
 		{
-			ssq1 << sTarget->getElement(it)->toString() << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - sTarget->getElement(it)->toString().size());
+			ssq1 << sTarget->getElement(it)->toString() << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - sTarget->getElement(it)->toString().size());
 			seq << sTarget->getElement(it)->toString() << " ";
 		}
 		else
 		{
-			ssq1 << "-" << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ssq1 << "-" << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 		}
 		it = it + 1;
 	}
 	it = 0;
 	while (it<result->correspondanceT2->size())
 	{
-		ss2 << sRef->getElement(it)->toString() << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - sRef->getElement(it)->toString().size());
+		ss2 << sRef->getElement(it)->toString() << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - sRef->getElement(it)->toString().size());
 		if (result->correspondanceT2->at(it) == 1)
 		{
-			ssq2 << sRef->getElement(it)->toString() << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - sRef->getElement(it)->toString().size());
+			ssq2 << sRef->getElement(it)->toString() << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - sRef->getElement(it)->toString().size());
 		}
 		else
 		{
-			ssq2 << "-" << getSpace(__max(tailleMaxSeq2, tailleMaxSeq1) - 1);
+			ssq2 << "-" << getSpace(std::max(tailleMaxSeq2, tailleMaxSeq1) - 1);
 		}
 		it = it + 1;
 	}

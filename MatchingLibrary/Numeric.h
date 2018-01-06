@@ -10,8 +10,9 @@
 #ifndef NUMERIC_H
 #define NUMERIC_H
 
+#include <typeinfo>
+
 #include "Element.h"
-#include "typeinfo"
 #include "math.h"
 #include "SequenceMatchingException.h"
 
