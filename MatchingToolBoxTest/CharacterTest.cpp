@@ -1,5 +1,10 @@
-#include "Character.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Character.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Character.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(CharacterTest, setting_getting_value) {
 	char value = 'a';
@@ -20,7 +25,7 @@ TEST(CharacterTest, character_distance) {
 	float distance = c1.distance(&c1, &c2);
 	ASSERT_EQ(distance, 1);
 
-	c2.setValue(value); 
+	c2.setValue(value);
 	distance = c1.distance(&c1, &c2);
 	ASSERT_EQ(distance, 0);
 }

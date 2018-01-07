@@ -1,7 +1,12 @@
-#include "Readfile.h"
 #include <exception>
-#include "Command.h"
-#include "gtest\gtest.h"
+#include "Readfile.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Command.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Command.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(LCSTest, LCS_character_csv) {
 
@@ -201,7 +206,7 @@ TEST(LCSTest, LCS_numeric_xml) {
 		"numeric",
 		"-result",
 		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_xml" };
-	
+
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
 	Readfile r(expected_file, result_file);

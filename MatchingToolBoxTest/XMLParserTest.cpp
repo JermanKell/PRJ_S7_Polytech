@@ -1,5 +1,10 @@
-#include "XMLParser.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "XMLParser.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/XMLParser.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(XMLParserTest, reading_character_xml_files) {
 	char* filename = "..\\TestingMaterial\\sequence_of_character.xml";

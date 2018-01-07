@@ -1,5 +1,10 @@
-#include "Parameters.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Parameters.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Parameters.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(ParametersTest, creating_parameters_objects) {
 	tools::Parameters p1;

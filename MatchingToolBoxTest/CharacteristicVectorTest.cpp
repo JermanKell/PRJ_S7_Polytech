@@ -1,5 +1,10 @@
-#include "CharacteristicVector.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "CharacteristicVector.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/CharacteristicVector.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(CharacteristicVectorTest, creating_vector) {
 	model::CharacteristicVector vector;
@@ -30,7 +35,7 @@ TEST(CharacteristicVectorTest, setting_values) {
 TEST(CharacteristicVectorTest, removing_values) {
 	float v = 5;
 	model::CharacteristicVector vector;
-	vector.addValue(v); 
+	vector.addValue(v);
 
 	vector.removeValue(0);
 	ASSERT_EQ(vector.getSize(), 0);

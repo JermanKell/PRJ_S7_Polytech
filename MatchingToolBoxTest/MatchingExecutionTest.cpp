@@ -1,6 +1,12 @@
-#include "MatchingExecutor.h"
-#include "Support.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "MatchingExecutor.h"
+    #include "Support.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/MatchingExecutor.h"
+    #include "../MatchingLibrary/Support.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(MatchingExecutionTest, creating_objects) {
 	char* file1 = "..\\TestingMaterial\\target_numeric.csv";
@@ -21,7 +27,7 @@ TEST(MatchingExecutionTest, creating_objects) {
 	ASSERT_EQ(executor2.getResultDirectory(), directory);
 
 	//Last constructor
-	tools::MatchingExecutor executor3(file1, file2, NULL, NULL, directory); 
+	tools::MatchingExecutor executor3(file1, file2, NULL, NULL, directory);
 	if (executor.getParameters() == NULL) {
 		SUCCEED();
 	}

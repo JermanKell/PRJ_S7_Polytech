@@ -1,0 +1,9 @@
+Result 
+Distance = 2
+Correspondance 
+
+f c a b a c c 
++ + = = = = = 
+    a b a c c 
+
+

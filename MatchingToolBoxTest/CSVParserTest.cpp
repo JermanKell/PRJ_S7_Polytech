@@ -1,10 +1,17 @@
-#include "CSVParser.h"
-#include "XMLParser.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "CSVParser.h"
+    #include "XMLParser.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/CSVParser.h"
+    #include "../MatchingLibrary/XMLParser.h"
+    #include "gtest/gtest.h"
+#endif
+
 
 TEST(CSVParserTest, setting_getting_sequence_type) {
 	inout::CSVParser parser;
-	
+
 	parser.setType(inout::SEQUENCE_TYPE::NUMERIC);
 	ASSERT_EQ(parser.getType(), inout::SEQUENCE_TYPE::NUMERIC);
 
@@ -16,11 +23,11 @@ TEST(CSVParserTest, setting_getting_sequence_type) {
 }
 
 TEST(CSVParserTest, reading_numeric_csv_file) {
-	char* filename = "..\\TestingMaterial\\ref_numeric.csv"; 
+	char* filename = "..\\TestingMaterial\\ref_numeric.csv";
 	inout::CSVParser parser;
 	parser.setType(inout::SEQUENCE_TYPE::NUMERIC);
 	std::vector<model::Sequence *> * sequences = (std::vector<model::Sequence *> *) parser.readFile(filename);
-	
+
 	// There should be one sequence
 	ASSERT_EQ(sequences->size(), 1);
 

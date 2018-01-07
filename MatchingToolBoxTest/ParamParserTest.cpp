@@ -1,5 +1,10 @@
-#include "ParamParser.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "ParamParser.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/ParamParser.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(ParamParserTest, reading_parameters_file) {
 	int iBoucle;

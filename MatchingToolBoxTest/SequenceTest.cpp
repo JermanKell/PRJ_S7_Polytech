@@ -1,7 +1,14 @@
-#include "Sequence.h"
-#include "Numeric.h"
-#include "Character.h"
-#include "gtest\gtest.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Sequence.h"
+    #include "Numeric.h"
+    #include "Character.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Sequence.h"
+    #include "../MatchingLibrary/Numeric.h"
+    #include "../MatchingLibrary/Character.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(SequenceTest, creating_sequence) {
 	model::Sequence sequence;
@@ -19,7 +26,7 @@ TEST(SequenceTest, adding_elements) {
 
 	model::Numeric* n2 = (model::Numeric*) sequence.getElement(0);
 	ASSERT_EQ(n2->getValue(), value);
-	
+
 	model::Character c(cValue);
 	ASSERT_ANY_THROW(sequence.addElement(&c));
 
@@ -54,8 +61,8 @@ TEST(SequenceTest, removing_elements) {
 	sequence.addElement(&n2);
 
 	sequence.removeElement(0);
-	ASSERT_EQ(sequence.getSize(), 1); 
-	
+	ASSERT_EQ(sequence.getSize(), 1);
+
 	model::Numeric* n = (model::Numeric*) sequence.getElement(0);
 	ASSERT_EQ(n->getValue(), value);
 }

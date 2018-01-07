@@ -1,16 +1,29 @@
-#include "Readfile.h"
 #include <exception>
-#include "Command.h"
-#include "gtest\gtest.h"
+#include "Readfile.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Command.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Command.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(Levenshtein_SystemTest, levenshtein_character_csv) {
+    /*string expected_file = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/expected_files/expected_target_character_ref_character_lvn_char_csv.txt";
+    string result_file = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/resultat_ref_character_target_character_lvn_char_csv/1.txt";
+    char* target = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/target_character.csv";
+    char* refe = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/ref_character.csv";
+    char * param = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/parameters_char_csv.xml";
+    char* result = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/resultat_ref_character_target_character_lvn_char_csv";*/
 
 	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\expected_files\\expected_target_character_ref_character_lvn_char_csv.txt";
 	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_character_target_character_lvn_char_csv\\1.txt";
 	char* args[] = {"MatchingToolBox.exe",
 					"-sequences",
 					"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\target_character.csv",
+					//target,
 					"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\ref_character.csv",
+					//refe,
 					"-method",
 					"lvn",
 					"-parser",
@@ -19,12 +32,14 @@ TEST(Levenshtein_SystemTest, levenshtein_character_csv) {
 					"character",
 					"-param",
 					"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\parameters_char_csv.xml",
+					//param,
 					"-result",
 					"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LEVENSHTEIN\\resultat_ref_character_target_character_lvn_char_csv" };
+					//result};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
-	
+
 	Readfile r(expected_file, result_file);
 
 	ASSERT_EQ(r.compareFile(), true);

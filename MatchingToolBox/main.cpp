@@ -4,29 +4,44 @@
 #include <ctime>
 #include <string.h>
 
-#include "InOut.h"
-#include "Command.h"
-#include "SequenceMatchingException.h"
+#if defined _WIN32 || defined _WIN64
+    #include "InOut.h"
+    #include "Command.h"
+    #include "SequenceMatchingException.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/InOut.h"
+    #include "../MatchingLibrary/Command.h"
+    #include "../MatchingLibrary/SequenceMatchingException.h"
+#endif
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
 	clock_t begin = clock();
-	commandline::CommandLineApplication *c;
 
-	// Uncomment this to test *
+	// Uncomment this to test with VS
 	/*char* args[] = { "MatchingToolBox.exe", "-sequences",
 			"..\\TestingMaterial\\target_character.csv",
 			"..\\TestingMaterial\\ref_character.csv",
 			"-method", "lvn", "-result" , "..\\TestingMaterial\\results", "-parser", "csv", "-type", "character"
 	};
-	c = new commandline::CommandLineApplication(12, args);*/
+	commandline::CommandLineApplication c(12, args);*/
 	//-sequences $(SolutionDir)\TestingMaterial\target_chien.csv $(SolutionDir)\TestingMaterial\ref_niche.csv -method dtw -parser csv -type character
-	c = new commandline::CommandLineApplication(argc, argv);
+
+	// Uncomment this to test with CodeBlocks (Linux)
+	/*char* args[] = { "MatchingToolBox.exe", "-sequences",
+			"../../../VS2015/MatchingToolBox/TestingMaterial/target_character.csv",
+			"../../../VS2015/MatchingToolBox/TestingMaterial/ref_character.csv",
+			"-method", "lvn", "-result" , "results_linux", "-parser", "csv", "-type", "character"
+	};
+	commandline::CommandLineApplication c(12, args);*/
+
+
+	commandline::CommandLineApplication c(argc, argv);
 
 	try {
-		c->run();
+		c.run();
 	} catch (exc::SequenceMatchingException & e) {
 		std::cout << e.what() << std::endl;
 		std::cout << "Use --help" << std::endl;
@@ -36,7 +51,7 @@ int main(int argc, char *argv[])
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
 	std::cout << "Matching sequences took : " << elapsed_secs << " seconds" << endl;
-	
+
 	getchar();
 	return 0;
 }

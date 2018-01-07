@@ -1,7 +1,12 @@
-#include "Readfile.h"
 #include <exception>
-#include "Command.h"
-#include "gtest\gtest.h"
+#include "Readfile.h"
+#if defined _WIN32 || defined _WIN64
+    #include "Command.h"
+    #include "gtest\gtest.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/Command.h"
+    #include "gtest/gtest.h"
+#endif
 
 TEST(ESC_SystemTest, ESC_character_csv) {
 

@@ -1,5 +1,11 @@
+#include <exception>
 #include "Readfile.h"
-#include "SequenceMatchingException.h"
+#if defined _WIN32 || defined _WIN64
+    #include "SequenceMatchingException.h"
+#elif defined __linux__
+    #include "../MatchingLibrary/SequenceMatchingException.h"
+#endif
+
 Readfile::Readfile()
 {
 }
@@ -11,7 +17,7 @@ Readfile::Readfile(string filename_expected , string filename_result)
 }
 bool Readfile::compareFile()
 {
-	// la variable compare me dit si le fichier est identique ou pas 
+	// la variable compare me dit si le fichier est identique ou pas
 	bool compare = true;
 	string rowfile1;
 	string rowfile2;
@@ -51,7 +57,7 @@ bool Readfile::compareFile()
 		rowfile2 += row;
 	}
 	/*
-	On enlève les espaces et les saut lignes 
+	On enlève les espaces et les saut lignes
 	*/
 	rowfile1 = stringWhithoutCharac(rowfile1, " \n\t\r");
 	rowfile2 = stringWhithoutCharac(rowfile2, " \n\t\r");
@@ -77,7 +83,7 @@ string Readfile::stringWhithoutCharac(string sequence, string seqCharactere)
 	string newSequence = "";
 	for (unsigned int index = 0; index < sequence.length(); index++)
 	{
-		if (seqCharactere.find(sequence[index]) == -1)
+		if (seqCharactere.find(sequence[index]) == string::npos)
 		{
 			newSequence += sequence[index];
 		}
