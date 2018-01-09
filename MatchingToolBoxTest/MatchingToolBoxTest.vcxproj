@@ -157,6 +157,7 @@
     <ClCompile Include="CharacteristicVectorTest.cpp" />
     <ClCompile Include="CharacterTest.cpp" />
     <ClCompile Include="CSVParserTest.cpp" />
+    <ClCompile Include="GtestEnvironment.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MatchingExecutionTest.cpp" />
     <ClCompile Include="NumericTest.cpp" />
@@ -169,6 +170,9 @@
     <ProjectReference Include="..\MatchingLibrary\MatchingLibrary.vcxproj">
       <Project>{fdf23241-8f8b-488b-a6b3-178feebdb36d}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GtestEnvironment.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

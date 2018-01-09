@@ -1,8 +1,7 @@
+#include "Character.h"
 #if defined _WIN32 || defined _WIN64
-    #include "Character.h"
     #include "gtest\gtest.h"
 #elif defined __linux__
-    #include "../MatchingLibrary/Character.h"
     #include "gtest/gtest.h"
 #endif
 

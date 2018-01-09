@@ -1,12 +1,7 @@
 #include <exception>
 #include "Readfile.h"
-#if defined _WIN32 || defined _WIN64
-    #include "Command.h"
-    #include "gtest\gtest.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/Command.h"
-    #include "gtest/gtest.h"
-#endif
+#include "Command.h"
+#include "GtestEnvironment.h"
 
 TEST(Levenshtein_SystemTest, levenshtein_character_csv) {
     /*string expected_file = "../../../VS2015/MatchingToolBox/MatchingToolBoxTestFonctionnel/TestingMaterial/LEVENSHTEIN/expected_files/expected_target_character_ref_character_lvn_char_csv.txt";

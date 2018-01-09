@@ -46,7 +46,7 @@ namespace exc {
 		*  \brief Constructeur
 		*  Constructeur par défaut de la classe SequenceMatchingException
 		*/
-		SequenceMatchingException();
+		SequenceMatchingException() {};
 		/*!
 		*  \brief Constructeur
 		*  Constructeur à deux arguments de la classe SequenceMatchingException

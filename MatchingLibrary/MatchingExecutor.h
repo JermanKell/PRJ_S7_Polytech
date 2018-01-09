@@ -122,6 +122,8 @@ namespace tools {
 		* \param method
 		*/
 		void setMethod(Correspondence* cor) {
+			if (method != 0)
+				delete method;
 			method = cor;
 		}
 
@@ -138,6 +140,8 @@ namespace tools {
 		* \param parameters
 		*/
 		void setParameters(Parameters* par) {
+			if (parameters != 0)
+				delete parameters;
 			parameters = par;
 		}
 
@@ -186,6 +190,8 @@ namespace tools {
 		* \param parser
 		*/
 		void setParser(inout::SequenceParser* p) {
+			if (parser != 0)
+				delete parser;
 			parser = p;
 		}
 

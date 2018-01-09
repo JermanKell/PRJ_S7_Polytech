@@ -1,15 +1,10 @@
-#if defined _WIN32 || defined _WIN64
-    #include "XMLParser.h"
-    #include "gtest\gtest.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/XMLParser.h"
-    #include "gtest/gtest.h"
-#endif
+#include "XMLParser.h"
+#include "GtestEnvironment.h"
 
 TEST(XMLParserTest, reading_character_xml_files) {
-	char* filename = "..\\TestingMaterial\\sequence_of_character.xml";
+	std::string filename = *MyEnvironment::shared_path + "sequence_of_character.xml";
 	// Opening the file
-	rapidxml::file<> xmlFile(filename);
+	rapidxml::file<> xmlFile(filename.c_str());
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 	inout::XMLParser parser;
@@ -32,9 +27,9 @@ TEST(XMLParserTest, reading_character_xml_files) {
 }
 
 TEST(XMLParserTest, reading_numeric_xml_files) {
-	char* filename = "..\\TestingMaterial\\sequence_of_numeric.xml";
+	std::string filename = *MyEnvironment::shared_path + "sequence_of_numeric.xml";
 	// Opening the file
-	rapidxml::file<> xmlFile(filename);
+	rapidxml::file<> xmlFile(filename.c_str());
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 	inout::XMLParser parser;
@@ -57,9 +52,9 @@ TEST(XMLParserTest, reading_numeric_xml_files) {
 }
 
 TEST(XMLParserTest, reading_vector_xml_files) {
-	char* filename = "..\\TestingMaterial\\sequence_of_vector.xml";
+	std::string filename = *MyEnvironment::shared_path + "sequence_of_vector.xml";
 	// Opening the file
-	rapidxml::file<> xmlFile(filename);
+	rapidxml::file<> xmlFile(filename.c_str());
 	rapidxml::xml_document<> doc;
 	doc.parse<0>(xmlFile.data());
 	inout::XMLParser parser;

@@ -1,8 +1,7 @@
+#include "Numeric.h"
 #if defined _WIN32 || defined _WIN64
-    #include "Numeric.h"
     #include "gtest\gtest.h"
 #elif defined __linux__
-    #include "../MatchingLibrary/Numeric.h"
     #include "gtest/gtest.h"
 #endif
 

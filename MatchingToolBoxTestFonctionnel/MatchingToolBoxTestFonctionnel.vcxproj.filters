@@ -39,9 +39,15 @@
     <ClCompile Include="LCSTestFonctionnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GtestEnvironment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Readfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GtestEnvironment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,7 @@
+#include "CharacteristicVector.h"
 #if defined _WIN32 || defined _WIN64
-    #include "CharacteristicVector.h"
     #include "gtest\gtest.h"
 #elif defined __linux__
-    #include "../MatchingLibrary/CharacteristicVector.h"
     #include "gtest/gtest.h"
 #endif
 

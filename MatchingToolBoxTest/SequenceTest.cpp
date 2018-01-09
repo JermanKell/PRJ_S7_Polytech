@@ -1,12 +1,9 @@
+#include "Sequence.h"
+#include "Numeric.h"
+#include "Character.h"
 #if defined _WIN32 || defined _WIN64
-    #include "Sequence.h"
-    #include "Numeric.h"
-    #include "Character.h"
     #include "gtest\gtest.h"
 #elif defined __linux__
-    #include "../MatchingLibrary/Sequence.h"
-    #include "../MatchingLibrary/Numeric.h"
-    #include "../MatchingLibrary/Character.h"
     #include "gtest/gtest.h"
 #endif
 
@@ -29,7 +26,6 @@ TEST(SequenceTest, adding_elements) {
 
 	model::Character c(cValue);
 	ASSERT_ANY_THROW(sequence.addElement(&c));
-
 }
 
 TEST(SequenceTest, inserting_elements) {
@@ -52,7 +48,6 @@ TEST(SequenceTest, inserting_elements) {
 
 TEST(SequenceTest, removing_elements) {
 	float value = 5;
-	int cValue = 'a';
 	model::Sequence sequence;
 	model::Numeric n1(value);
 	value = 4;

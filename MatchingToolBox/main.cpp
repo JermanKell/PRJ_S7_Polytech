@@ -4,15 +4,9 @@
 #include <ctime>
 #include <string.h>
 
-#if defined _WIN32 || defined _WIN64
-    #include "InOut.h"
-    #include "Command.h"
-    #include "SequenceMatchingException.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/InOut.h"
-    #include "../MatchingLibrary/Command.h"
-    #include "../MatchingLibrary/SequenceMatchingException.h"
-#endif
+#include "InOut.h"
+#include "Command.h"
+#include "SequenceMatchingException.h"
 
 using namespace std;
 

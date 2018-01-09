@@ -1,10 +1,6 @@
 #include <exception>
 #include "Readfile.h"
-#if defined _WIN32 || defined _WIN64
-    #include "SequenceMatchingException.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/SequenceMatchingException.h"
-#endif
+#include "SequenceMatchingException.h"
 
 Readfile::Readfile()
 {

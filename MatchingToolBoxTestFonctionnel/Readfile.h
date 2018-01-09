@@ -1,3 +1,6 @@
+#ifndef READFILE_H
+#define READFILE_H
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -28,5 +31,6 @@ private:
 
 };
 
+#endif  // READFILE_H
 
 

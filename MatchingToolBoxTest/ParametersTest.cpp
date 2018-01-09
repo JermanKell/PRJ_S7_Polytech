@@ -1,8 +1,7 @@
+#include "Parameters.h"
 #if defined _WIN32 || defined _WIN64
-    #include "Parameters.h"
     #include "gtest\gtest.h"
 #elif defined __linux__
-    #include "../MatchingLibrary/Parameters.h"
     #include "gtest/gtest.h"
 #endif
 

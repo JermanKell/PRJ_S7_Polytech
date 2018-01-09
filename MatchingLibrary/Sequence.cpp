@@ -28,7 +28,7 @@ Sequence::Sequence(const Sequence &copy) {
 	int it = 0;
 	int __max = copy.vSlist->size();
 	while (it < __max) {
-		vSlist->insert(vSlist->begin(), copy.vSlist->at(it));
+		vSlist->insert(vSlist->begin(), copy.vSlist->at(it)->copy()); //ajout de ->copy()
 		it = it + 1;
 	}
 }

@@ -1,16 +1,11 @@
-#if defined _WIN32 || defined _WIN64
-    #include "ParamParser.h"
-    #include "gtest\gtest.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/ParamParser.h"
-    #include "gtest/gtest.h"
-#endif
+#include "ParamParser.h"
+#include "GtestEnvironment.h"
 
 TEST(ParamParserTest, reading_parameters_file) {
 	int iBoucle;
-	char* filename = "..//TestingMaterial/standard_parameters_file.xml";
+	std::string filename = *MyEnvironment::shared_path + "standard_parameters_file.xml";
 	inout::ParamParser parser;
-	std::vector<tools::Parameters*> *  paramList = (std::vector<tools::Parameters*> *) parser.readFile(filename);
+	std::vector<tools::Parameters*> *  paramList = (std::vector<tools::Parameters*> *) parser.readFile((void*)filename.c_str());
 
 	tools::Parameters* param = paramList->at(0);
 

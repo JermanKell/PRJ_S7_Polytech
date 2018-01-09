@@ -1,17 +1,12 @@
-#if defined _WIN32 || defined _WIN64
-    #include "MatchingExecutor.h"
-    #include "Support.h"
-    #include "gtest\gtest.h"
-#elif defined __linux__
-    #include "../MatchingLibrary/MatchingExecutor.h"
-    #include "../MatchingLibrary/Support.h"
-    #include "gtest/gtest.h"
-#endif
+#include "MatchingExecutor.h"
+#include "Support.h"
+#include "GtestEnvironment.h"
 
 TEST(MatchingExecutionTest, creating_objects) {
-	char* file1 = "..\\TestingMaterial\\target_numeric.csv";
-	char* file2 = "..\\TestingMaterial\\ref_numeric.csv";
-	char* directory = "..\\TestingMaterial\\simple";
+	std::string file1 = *MyEnvironment::shared_path + "target_numeric.csv";
+	std::string file2 = *MyEnvironment::shared_path + "ref_numeric.csv";
+	std::string directory = *MyEnvironment::shared_path + "simple";
+
 	tools::MatchingExecutor executor(file1, file2, NULL);
 	// First constructor
 	ASSERT_EQ(executor.getTargetFile(), file1);
