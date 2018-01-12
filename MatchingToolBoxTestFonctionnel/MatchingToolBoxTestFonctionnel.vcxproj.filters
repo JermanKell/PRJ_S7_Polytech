@@ -39,7 +39,7 @@
     <ClCompile Include="LCSTestFonctionnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GtestEnvironment.cpp">
+    <ClCompile Include="DTWTestFonctionnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,6 +48,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GtestEnvironment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CDPTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ESCTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FSMTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LCSTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevenshteinTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MVMTestFonctionnel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DTWTestFonctionnel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

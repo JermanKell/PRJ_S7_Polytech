@@ -1,16 +1,17 @@
-#include <exception>
-#include "Readfile.h"
-#include "Command.h"
-#include "GtestEnvironment.h"
+#include "LCSTestFonctionnel.h"
 
-TEST(LCSTest, LCS_character_csv) {
+TEST_F(LCS_SystemTest, LCS_character_csv) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_character_lcs_csv.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_csv\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_character_ref_character_lcs_char_csv.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_character_ref_character_lcs_char_csv";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_character.csv";
+	string ref_file = (string)_shared_path_LCS + "ref_character.csv";
+	string param_file = (string)_shared_path_LCS + "parameters_char_csv.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_character.csv",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_character.csv",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -18,9 +19,9 @@ TEST(LCSTest, LCS_character_csv) {
 		"-type",
 		"character",
 		"-param",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\parameters_char_csv.xml",
+		&param_file[0u],
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_csv" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
@@ -30,16 +31,20 @@ TEST(LCSTest, LCS_character_csv) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-/*TEST(LCSTest, LCS_numeric_csv) {
+TEST_F(LCS_SystemTest, LCS_numeric_csv) {
 
-	string expected_file1 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_numeric_lcs_csv1.txt";
-	string expected_file2 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_numeric_lcs_csv2.txt";
-	string result_file1 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_csv\\1.txt";
-	string result_file2 = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_csv\\2.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file1 = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_numeric_ref_numeric_lcs_num_csv_1.txt";
+	string expected_file2 = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_numeric_ref_numeric_lcs_num_csv_2.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_numeric_ref_numeric_lcs_num_csv";
+	string result_file1 = result_path + _p + "1.txt";
+	string result_file2 = result_path + _p + "2.txt";
+	string target_file = (string)_shared_path_LCS + "target_numeric.csv";
+	string ref_file = (string)_shared_path_LCS + "ref_numeric.csv";
+	string param_file = (string)_shared_path_LCS + "parameters_num_csv.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_numeric.csv",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_numeric.csv",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -47,10 +52,9 @@ TEST(LCSTest, LCS_character_csv) {
 		"-type",
 		"numeric",
 		"-param",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\parameters_num_csv.xml",
+		&param_file[0u],
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_csv" };
-
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
@@ -63,14 +67,18 @@ TEST(LCSTest, LCS_character_csv) {
 	ASSERT_EQ(r2.compareFile(), true);
 }
 
-TEST(LCSTest, lcs_vector_csv) {
+TEST_F(LCS_SystemTest, lcs_vector_csv) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_vector_lcs_csv.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_csv\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_vector_ref_vector_lcs_vec_csv.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_vector_ref_vector_lcs_vec_csv";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_vector.csv";
+	string ref_file = (string)_shared_path_LCS + "ref_vector.csv";
+	string param_file = (string)_shared_path_LCS + "parameters_vec_csv.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_vector.csv",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_vector.csv",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -78,9 +86,9 @@ TEST(LCSTest, lcs_vector_csv) {
 		"-type",
 		"vector",
 		"-param",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\parameters_vec_csv.xml",
+		&param_file[0u],
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_csv" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
@@ -90,14 +98,17 @@ TEST(LCSTest, lcs_vector_csv) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_character_ext) {
+TEST_F(LCS_SystemTest, LCS_character_ext) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_character_lcs_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_ext\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_character_ref_character_lcs_char_ext.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_character_ref_character_lcs_char_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_character.ext";
+	string ref_file = (string)_shared_path_LCS + "ref_character.ext";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_character.ext",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_character.ext",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -105,7 +116,8 @@ TEST(LCSTest, LCS_character_ext) {
 		"-type",
 		"character",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_ext" };
+		&result_path[0u] };
+
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
 	Readfile r(expected_file, result_file);
@@ -113,14 +125,17 @@ TEST(LCSTest, LCS_character_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_numeric_ext) {
+TEST_F(LCS_SystemTest, LCS_numeric_ext) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_numeric_lcs_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_ext\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_numeric_ref_numeric_lcs_num_ext.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_numeric_ref_numeric_lcs_num_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_numeric.ext";
+	string ref_file = (string)_shared_path_LCS + "ref_numeric.ext";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_numeric.ext",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_numeric.ext",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -128,7 +143,7 @@ TEST(LCSTest, LCS_numeric_ext) {
 		"-type",
 		"numeric",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_ext" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -137,14 +152,17 @@ TEST(LCSTest, LCS_numeric_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_vector_ext) {
+TEST_F(LCS_SystemTest, LCS_vector_ext) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_vector_lcs_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_ext\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_vector_ref_vector_lcs_vec_ext.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_vector_ref_vector_lcs_vec_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_vector.ext";
+	string ref_file = (string)_shared_path_LCS + "ref_vector.ext";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_vector.ext",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_vector.ext",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -152,7 +170,7 @@ TEST(LCSTest, LCS_vector_ext) {
 		"-type",
 		"vector",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_ext" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -161,14 +179,17 @@ TEST(LCSTest, LCS_vector_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_character_xml) {
+TEST_F(LCS_SystemTest, LCS_character_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_character_lcs_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_xml\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_character_ref_character_lcs_char_xml.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_character_ref_character_lcs_char_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_character.xml";
+	string ref_file = (string)_shared_path_LCS + "ref_character.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_character.xml",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_character.xml",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -176,7 +197,7 @@ TEST(LCSTest, LCS_character_xml) {
 		"-type",
 		"character",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_character_target_character_lcs_char_xml" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -185,14 +206,17 @@ TEST(LCSTest, LCS_character_xml) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_numeric_xml) {
+TEST_F(LCS_SystemTest, LCS_numeric_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_numeric_lcs_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_xml\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_numeric_ref_numeric_lcs_num_xml.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_numeric_ref_numeric_lcs_num_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_numeric.xml";
+	string ref_file = (string)_shared_path_LCS + "ref_numeric.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_numeric.xml",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_numeric.xml",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -200,7 +224,7 @@ TEST(LCSTest, LCS_numeric_xml) {
 		"-type",
 		"numeric",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_numeric_target_numeric_lcs_num_xml" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -209,14 +233,17 @@ TEST(LCSTest, LCS_numeric_xml) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(LCSTest, LCS_vector_xml) {
+TEST_F(LCS_SystemTest, LCS_vector_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\expected_files\\expected_target_ref_vector_lcs_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_xml\\1.txt";
-	char * args[] = { "MatchingToolBox.exe",
+	string expected_file = (string)_shared_path_LCS + "expected_files" + _p + "expected_target_vector_ref_vector_lcs_vec_xml.txt";
+	string result_path = (string)_shared_path_LCS + "resultat_target_vector_ref_vector_lcs_vec_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_LCS + "target_vector.xml";
+	string ref_file = (string)_shared_path_LCS + "ref_vector.xml";
+	char* args[] = { "MatchingToolBox.exe",
 		"-sequences",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\target_LCS_vector.xml",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\date_file_LCS\\ref_LCS_vector.xml",
+		&target_file[0u],
+		&ref_file[0u],
 		"-method",
 		"lcs",
 		"-parser",
@@ -224,11 +251,11 @@ TEST(LCSTest, LCS_vector_xml) {
 		"-type",
 		"vector",
 		"-result",
-		"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\LCS\\resultat_ref_vector_target_vector_lcs_vec_xml" };
+		&result_path[0u] };
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
 	Readfile r(expected_file, result_file);
 
 	ASSERT_EQ(r.compareFile(), true);
-}*/
+}

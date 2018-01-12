@@ -1,9 +1,0 @@
-Result 
-Distance = 5
-Correspondance 
-
-f c a b a c c 
-o = + + + = + 
-t c       c   
-
-

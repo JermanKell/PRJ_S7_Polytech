@@ -1,16 +1,17 @@
-#include <exception>
-#include "Readfile.h"
-#include "Command.h"
-#include "GtestEnvironment.h"
+#include "CDPTestFonctionnel.h"
 
-TEST(CDP_SystemTest, CDP_character_csv) {
+TEST_F(CDP_SystemTest, CDP_character_csv) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_character_ref_character_cdp_char_csv.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_csv\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_character_ref_character_cdp_char_csv.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_character_ref_character_cdp_char_csv";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_character.csv";
+	string ref_file = (string)_shared_path_CDP + "ref_character.csv";
+	string param_file = (string)_shared_path_CDP + "parameters_char_csv.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_character.csv",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_character.csv",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -18,9 +19,9 @@ TEST(CDP_SystemTest, CDP_character_csv) {
 			"-type",
 			"character",
 			"-param",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\parameters_char_csv.xml",
+			&param_file[0u],
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_csv" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 	ASSERT_NO_THROW(c.run());
@@ -30,14 +31,18 @@ TEST(CDP_SystemTest, CDP_character_csv) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-/*TEST(FSM_SystemTest, FSM_numeric_csv) {
+TEST_F(CDP_SystemTest, CDP_numeric_csv) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_numeric_ref_numeric_cdp_num_csv.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_csv\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_numeric_ref_numeric_cdp_num_csv.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_numeric_ref_numeric_cdp_num_csv";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_numeric.csv";
+	string ref_file = (string)_shared_path_CDP + "ref_numeric.csv";
+	string param_file = (string)_shared_path_CDP + "parameters_num_csv.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_numeric.csv",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_numeric.csv",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -45,37 +50,9 @@ TEST(CDP_SystemTest, CDP_character_csv) {
 			"-type",
 			"numeric",
 			"-param",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\parameters_num_csv.xml",
+			&param_file[0u],
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_csv" };
-
-	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
-
-	ASSERT_NO_THROW(c.run());
-
-	Readfile r(expected_file, result_file);
-
-	ASSERT_EQ(r.compareFile(), true);
-}
-
-TEST(FSM_SystemTest, FSM_vector_csv) {
-
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_vector_ref_vector_cdp_vec_csv.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_csv\\1.txt";
-	char* args[] = { "MatchingToolBox.exe",
-			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_vector.csv",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_vector.csv",
-			"-method",
-			"cdp",
-			"-parser",
-			"csv",
-			"-type",
-			"vector",
-			"-param",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\parameters_vec_csv.xml",
-			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_csv" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
 
@@ -86,14 +63,50 @@ TEST(FSM_SystemTest, FSM_vector_csv) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_character_ext) {
+TEST_F(CDP_SystemTest, CDP_vector_csv) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_character_ref_character_cdp_char_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_ext\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_vector_ref_vector_cdp_vec_csv.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_vector_ref_vector_cdp_vec_csv";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_vector.csv";
+	string ref_file = (string)_shared_path_CDP + "ref_vector.csv";
+	string param_file = (string)_shared_path_CDP + "parameters_vec_csv.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_character.ext",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_character.ext",
+			&target_file[0u],
+			&ref_file[0u],
+			"-method",
+			"cdp",
+			"-parser",
+			"csv",
+			"-type",
+			"vector",
+			"-param",
+			&param_file[0u],
+			"-result",
+			&result_path[0u]};
+
+	commandline::CommandLineApplication c = commandline::CommandLineApplication(14, args);
+
+	ASSERT_NO_THROW(c.run());
+
+	Readfile r(expected_file, result_file);
+
+	ASSERT_EQ(r.compareFile(), true);
+}
+
+TEST_F(CDP_SystemTest, CDP_character_ext) {
+
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_character_ref_character_cdp_char_ext.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_character_ref_character_cdp_char_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_character.ext";
+	string ref_file = (string)_shared_path_CDP + "ref_character.ext";
+	string param_file = (string)_shared_path_CDP + "parameters_char_ext.xml";
+	char* args[] = { "MatchingToolBox.exe",
+			"-sequences",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -101,7 +114,7 @@ TEST(FSM_SystemTest, FSM_character_ext) {
 			"-type",
 			"character",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_ext" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -110,14 +123,18 @@ TEST(FSM_SystemTest, FSM_character_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_numeric_ext) {
+TEST_F(CDP_SystemTest, CDP_numeric_ext) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_numeric_ref_numeric_cdp_num_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_ext\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_numeric_ref_numeric_cdp_num_ext.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_numeric_ref_numeric_cdp_num_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_numeric.ext";
+	string ref_file = (string)_shared_path_CDP + "ref_numeric.ext";
+	string param_file = (string)_shared_path_CDP + "parameters_num_ext.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_numeric.ext",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_numeric.ext",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -125,7 +142,7 @@ TEST(FSM_SystemTest, FSM_numeric_ext) {
 			"-type",
 			"numeric",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_ext" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -134,14 +151,18 @@ TEST(FSM_SystemTest, FSM_numeric_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_vector_ext) {
+TEST_F(CDP_SystemTest, CDP_vector_ext) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_vector_ref_vector_cdp_vec_ext.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_ext\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_vector_ref_vector_cdp_vec_ext.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_vector_ref_vector_cdp_vec_ext";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_vector.ext";
+	string ref_file = (string)_shared_path_CDP + "ref_vector.ext";
+	string param_file = (string)_shared_path_CDP + "parameters_vec_ext.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_vector.ext",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_vector.ext",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -149,7 +170,7 @@ TEST(FSM_SystemTest, FSM_vector_ext) {
 			"-type",
 			"vector",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_ext" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -158,14 +179,18 @@ TEST(FSM_SystemTest, FSM_vector_ext) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_character_xml) {
+TEST_F(CDP_SystemTest, CDP_character_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_character_ref_character_cdp_char_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_xml\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_character_ref_character_cdp_char_xml.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_character_ref_character_cdp_char_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_character.xml";
+	string ref_file = (string)_shared_path_CDP + "ref_character.xml";
+	string param_file = (string)_shared_path_CDP + "parameters_char_xml.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_character.xml",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_character.xml",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -173,7 +198,7 @@ TEST(FSM_SystemTest, FSM_character_xml) {
 			"-type",
 			"character",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_character_target_character_cdp_char_xml" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -182,14 +207,18 @@ TEST(FSM_SystemTest, FSM_character_xml) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_numeric_xml) {
+TEST_F(CDP_SystemTest, CDP_numeric_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_numeric_ref_numeric_cdp_num_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_xml\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_numeric_ref_numeric_cdp_num_xml.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_numeric_ref_numeric_cdp_num_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_numeric.xml";
+	string ref_file = (string)_shared_path_CDP + "ref_numeric.xml";
+	string param_file = (string)_shared_path_CDP + "parameters_num_xml.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_numeric.xml",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_numeric.xml",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -197,7 +226,7 @@ TEST(FSM_SystemTest, FSM_numeric_xml) {
 			"-type",
 			"numeric",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_numeric_target_numeric_cdp_num_xml" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
@@ -206,14 +235,18 @@ TEST(FSM_SystemTest, FSM_numeric_xml) {
 	ASSERT_EQ(r.compareFile(), true);
 }
 
-TEST(FSM_SystemTest, FSM_vector_xml) {
+TEST_F(CDP_SystemTest, CDP_vector_xml) {
 
-	string expected_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\expected_files\\expected_target_vector_ref_vector_cdp_vec_xml.txt";
-	string result_file = "..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_xml\\1.txt";
+	string expected_file = (string)_shared_path_CDP + "expected_files" + _p + "expected_target_vector_ref_vector_cdp_vec_xml.txt";
+	string result_path = (string)_shared_path_CDP + "resultat_target_vector_ref_vector_cdp_vec_xml";
+	string result_file = result_path + _p + "1.txt";
+	string target_file = (string)_shared_path_CDP + "target_vector.xml";
+	string ref_file = (string)_shared_path_CDP + "ref_vector.xml";
+	string param_file = (string)_shared_path_CDP + "parameters_vec_xml.xml";
 	char* args[] = { "MatchingToolBox.exe",
 			"-sequences",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\target_vector.xml",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\ref_vector.xml",
+			&target_file[0u],
+			&ref_file[0u],
 			"-method",
 			"cdp",
 			"-parser",
@@ -221,11 +254,11 @@ TEST(FSM_SystemTest, FSM_vector_xml) {
 			"-type",
 			"vector",
 			"-result",
-			"..\\MatchingToolBoxTestFonctionnel\\TestingMaterial\\CDP\\resultat_ref_vector_target_vector_cdp_vec_xml" };
+			&result_path[0u]};
 
 	commandline::CommandLineApplication c = commandline::CommandLineApplication(12, args);
 	ASSERT_NO_THROW(c.run());
 	Readfile r(expected_file, result_file);
 
 	ASSERT_EQ(r.compareFile(), true);
-}*/
+}

@@ -207,9 +207,9 @@ void MatchingExecutor::writeOutput(std::string& directoryPath, std::vector<std::
 		}
 
 		#if defined _WIN32 || defined _WIN64
-			directory += (string)"\\resultat" + "_" + fileRname + "_" + fileTname + "_" + method_name + "_" + type_name + "_" + parser_name + "\\";
+			directory += (string)"\\resultat" + "_" + fileTname + "_" + fileRname + "_" + method_name + "_" + type_name + "_" + parser_name + "\\";
 		#elif defined __linux__
-			directory += (string)"/resultat" + "_" + fileRname + "_" + fileTname + "_" + method_name + "_" + type_name + "_" + parser_name + "/";
+			directory += (string)"/resultat" + "_" + fileTname + "_" + fileRname + "_" + method_name + "_" + type_name + "_" + parser_name + "/";
 		#endif
 	}
 

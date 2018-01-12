@@ -155,9 +155,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CDPTestFonctionnel.cpp" />
+    <ClCompile Include="DTWTestFonctionnel.cpp" />
     <ClCompile Include="ESCTestFonctionnel.cpp" />
     <ClCompile Include="FSMTestFonctionnel.cpp" />
-    <ClCompile Include="GtestEnvironment.cpp" />
     <ClCompile Include="LCSTestFonctionnel.cpp" />
     <ClCompile Include="LevenshteinTestFontionnel.cpp" />
     <ClCompile Include="main.cpp" />
@@ -170,7 +170,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDPTestFonctionnel.h" />
+    <ClInclude Include="DTWTestFonctionnel.h" />
+    <ClInclude Include="ESCTestFonctionnel.h" />
+    <ClInclude Include="FSMTestFonctionnel.h" />
     <ClInclude Include="GtestEnvironment.h" />
+    <ClInclude Include="LCSTestFonctionnel.h" />
+    <ClInclude Include="LevenshteinTestFonctionnel.h" />
+    <ClInclude Include="MVMTestFonctionnel.h" />
     <ClInclude Include="Readfile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

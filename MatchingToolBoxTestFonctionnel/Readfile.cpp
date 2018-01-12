@@ -1,6 +1,4 @@
-#include <exception>
 #include "Readfile.h"
-#include "SequenceMatchingException.h"
 
 Readfile::Readfile()
 {
